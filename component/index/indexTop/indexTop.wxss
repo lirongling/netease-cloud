@@ -1,0 +1,24 @@
+    @import "../../../app.wxss";
+    .container {
+        width: 100%;
+        height: 90rpx;
+    }
+    
+    image {
+        width: 80rpx;
+    }
+    
+    .left {
+        padding: 0 10rpx;
+        text-align: center;
+        font-size: 36rpx;
+    }
+    
+    .center {
+        flex: 1;
+        margin: 0 10rpx;
+    }
+    
+    .right {
+        padding: 0 10rpx;
+    }

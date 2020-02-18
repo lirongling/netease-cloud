@@ -1,0 +1,22 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="container ">
+  <view class="title flex j-between a-center">
+    <view class="title-left flex j-start a-center">
+      <view class="title-text {{index===select&&singData.type.length>1 ? 'big-title' : ''}}" wx:for="{{singData.type}}" wx:key="index" data-index="{{index}}" bind:tap="selectIdx">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="title-right">{{singData.right}}</view>
+  </view>
+  <view class="content flex j-start f-wrap">
+    <view class="content-item flex a-center f-column  " wx:for="{{singData.data}}" wx:key="index" wx:if="{{index<6}}" data-id="{{item.id}}" bind:tap="goDetails">
+      <image class="img" src="{{item.picUrl}}" mode="widthFix" wx:if="{{singData.index!==4}}" />
+      <image class="img" src="{{item.coverUrl}}" mode="widthFix" wx:else />
+      <view class="name ellipsiss">{{item.name}}</view>
+      <view class="play flex a-center" wx:if="{{singData.index===0||singData.index===2}}">
+        <van-icon name="play-circle-o" class="paly-ico" />
+        {{filter.numberVonversion(item.playCount)}}
+      </view>
+    </view>
+  </view>
+</view>

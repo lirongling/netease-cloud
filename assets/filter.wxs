@@ -1,0 +1,48 @@
+// 支持es4语法
+var filter = {
+        numberToFixed: function(value) {
+            return value.toFixed(2)
+        },
+        numberVonversion: function(value) {
+            var a = (value / 1000).toFixed(2)
+            if (a >= 100000) {
+                var b = (value / 100000000).toFixed(2)
+                return b + '亿'
+
+            } else if (a >= 10) {
+                var b = (value / 10000).toFixed(0)
+                return b + '万'
+            } else if (a >= 1 && a < 10) {
+                return a + '千'
+            } else {
+                return value
+            }
+        },
+        color: function() {
+            var rgb1 = parseInt(Math.random() * 255);
+            var rgb2 = parseInt(Math.random() * 255);
+            var rgb3 = parseInt(Math.random() * 255);
+            var rag = 'rgb(' + rgb1 + ',' + rgb2 + ',' + rgb3 + ')';
+            return rag
+        },
+
+        // /**
+        //  * 搜索关键词高亮显示
+        //  * @param String str 要替换的关键词
+        //  * @param String value 搜索框里面的内容
+        //  * @return Function 替换后的内容
+        //  */
+        // const keyWord = (str, value) => {
+        //     const replaceReg = new RegExp(value, 'g');
+        //     const replaceString = `<span style='color:red'>${value}</span>`
+        //     str = str.replace(replaceReg, replaceString);
+        //     return str
+        // }
+
+    }
+    // 导出对外暴露的属性
+module.exports = {
+    numberToFixed: filter.numberToFixed,
+    numberVonversion: filter.numberVonversion,
+    color: filter.color
+}

@@ -1,0 +1,16 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="top">
+    <indexTop bind:onfocus="onFocus"></indexTop>
+  </view>
+  <view class="content">
+    <banner></banner>
+    <recommended></recommended>
+    <recommend singData="{{personalized}}"></recommend>
+    <recommend singData="{{albums}}" bind:selects="select"></recommend>
+    <recommend singData="{{newMv}}"></recommend>
+    <recommend singData="{{newDjprogram}}"></recommend>
+    <recommend singData="{{newProgram}}"></recommend>
+  </view>
+  <van-popup show="{{showPop}}" position="bottom" custom-style="height: 100%;"></van-popup>
+</view>

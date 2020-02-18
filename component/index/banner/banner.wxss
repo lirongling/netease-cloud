@@ -1,0 +1,23 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 20px auto;
+    line-height: 80rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.swiper {
+    border-radius: 20rpx;
+}
+
+.image-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20rpx;
+}
+
+.img {
+    width: 100%;
+    border-radius: 20rpx;
+}

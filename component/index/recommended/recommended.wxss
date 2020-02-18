@@ -1,0 +1,19 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -40rpx;
+}
+
+.content-item {
+    flex: 1;
+}
+
+.img {
+    width: 80rpx;
+}
+
+.title {
+    margin-top: 10rpx;
+    text-align: center;
+}

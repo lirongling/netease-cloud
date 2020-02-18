@@ -1,0 +1,7 @@
+<view class="container flex " style="padding-top:{{$.navTop*2}}rpx;margin-right:{{$.navRight*2}}rpx;height:{{$.navHeight}}rpx">
+  <view class="left flex a-center">
+    <van-icon name="arrow-left" class="back" bind:tap="back" />
+    <van-icon name="wap-home-o" bind:tap="home" />
+  </view>
+  <view class="title">{{title}}</view>
+</view>

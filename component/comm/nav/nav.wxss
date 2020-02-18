@@ -1,0 +1,21 @@
+@import "../../../app.wxss";
+.container {
+    margin-left: 10rpx;
+    position: relative;
+    align-items: flex-start;
+}
+
+.left {
+    font-size: 50rpx;
+}
+
+.back {
+    margin-right: 10rpx;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35rpx;
+}

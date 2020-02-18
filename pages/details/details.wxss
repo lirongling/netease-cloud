@@ -1,0 +1,4 @@
+.top {
+    background: linear-gradient(to right, #d3959b, #bfe6ba);
+    height: 200rpx;
+}

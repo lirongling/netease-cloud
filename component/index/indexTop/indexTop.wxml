@@ -1,0 +1,9 @@
+<view class="container flex a-center j-between">
+  <view class="left">音乐馆</view>
+  <view class="center">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:focus="onFocus" />
+  </view>
+  <view class="right flex a-center j-center">
+    <image src="../../../assets/images/music.png" mode="widthFix" />
+  </view>
+</view>

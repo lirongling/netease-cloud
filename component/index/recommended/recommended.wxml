@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="content flex j-between a-center">
+    <view class="content-item flex f-column a-center" wx:for="{{recommendData}}" wx:key="index">
+      <image class="img" src="{{item.ico}}" mode="widthFix" />
+      <view class="title">{{item.title}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "indexTop": "../../component/index/indexTop/indexTop",
+        "banner": "../../component/index/banner/banner",
+        "recommended": "../../component/index/recommended/recommended",
+        "recommend": "../../component/index/recommend/commend",
+        "van-popup": "../../lib/vant/popup/index"
+
+    }
+}
