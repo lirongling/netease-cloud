@@ -1,0 +1,55 @@
+.top {
+    background-size: cover;
+    height: 600rpx;
+}
+
+.title {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -150rpx;
+}
+
+.name {
+    font-size: 36rpx;
+    font-weight: 550;
+    color: white;
+}
+
+.fans {
+    font-size: 28rpx;
+    margin-top: 10rpx;
+    color: rgb(112, 112, 112);
+}
+
+.title-right {
+    width: 200rpx;
+    background: linear-gradient(to right, #4bb0ff, #6149f6);
+    border-radius: 6rpx;
+    height: 60rpx;
+}
+
+.right-text {
+    margin-left: 10rpx;
+}
+
+.btn {
+    width: 200rpx!important;
+}
+
+.content {
+    /* border-radius: 40rpx 40rpx 0 0; */
+    overflow: hidden;
+    height: auto;
+    margin-top: 20rpx;
+}
+
+.tabs {
+    border-radius: 40rpx 40rpx 0 0!important;
+    background: #4bb0ff;
+    z-index: 10;
+}
+
+.tabs-fixed {
+    position: fixed;
+    top: 10%;
+}

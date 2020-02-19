@@ -1,0 +1,14 @@
+{
+    "usingComponents": {
+        "nav": "../../component/comm/nav/nav",
+        "van-icon": "../../lib/vant/icon/index",
+        "van-button": "../../lib/vant/button/index",
+        "tabs": "../../component/comm/tabs/tabs",
+        "album": "../../component/singerDetails/album/album",
+        "details": "../../component/singerDetails/details/details",
+        "song": "../../component/singerDetails/song/song",
+        "video": "../../component/singerDetails/video/video"
+
+    },
+    "navigationStyle": "custom"
+}

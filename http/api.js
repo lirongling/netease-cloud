@@ -35,7 +35,20 @@ export default {
     getProgram() {
         return service.get('/program/recommend')
     },
+    // 获取歌手列表
 
+    getArtistList(cat, initial, offset, limit) {
+        return service.get(`/artist/list?cat=${cat}&initial=${initial}&offset=${offset}&limit=${limit}`)
+    },
+    // 获取歌手详情
+    // /artist/desc?id=6452
+    getArtistDetails(id) {
+        return service.get(`/artist/desc?id=${id}`)
+    },
+    //获取歌手专辑 
+    getArtistAlbum(id, offset, limit) {
+        return service.get(`/artist/album?id=${id}&offset=${offset}&limit=${limit}`)
+    },
     // // 登录
     // login(params) {
     //     return service.post('login', params)

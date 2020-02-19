@@ -1,0 +1,44 @@
+@import "../../../app.wxss";
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 34rpx;
+    font-weight: 550;
+}
+
+.top {
+    margin: 40rpx auto;
+}
+
+.title-detail {
+    margin: 20rpx auto;
+    font-size: 28rpx;
+    color: rgb(53, 53, 53);
+    line-height: 50rpx;
+    -webkit-line-clamp: 4;
+}
+
+.details-item {
+    margin: 10rpx auto;
+}
+
+.more {
+    padding: 6rpx 10px;
+    border-radius: 20rpx;
+    border: 1px #c5c5c5 solid;
+    color: #313131;
+    font-size: 28rpx;
+}
+
+.topic-content {
+    color: #313131;
+    -webkit-line-clamp: 10;
+}
+
+.img {
+    width: 100rpx;
+    border-radius: 50%;
+}

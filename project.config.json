@@ -41,13 +41,36 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/singerDetails/singerDetails",
+					"pathName": "pages/singerDetails/singerDetails",
+					"query": "id=6731&name=\"赵雷\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "id=6731&name=\"赵雷\"",
+					"scene": null
+				}
+			]
 		}
 	}
 }

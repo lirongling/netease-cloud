@@ -1,0 +1,33 @@
+@import "../../../app.wxss";
+.box {
+    position: relative;
+    padding: 10px;
+    background-color: #f7f8fa;
+    border-bottom: 1px solid #ebedf0;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 40rpx 40rpx 0 0!important;
+}
+
+.item {
+    margin: 0 10px;
+}
+
+.title {
+    text-align: center;
+    position: relative;
+}
+
+.line {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    background-color: #ee0a24;
+    border-radius: 3px;
+}
+
+.active {
+    color: #323233;
+    font-weight: 500;
+}

@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="top flex j-between a-center">
+    <view class="title">基本信息</view>
+    <view class="more">查看更多</view>
+  </view>
+  <view class="title-detail ellipsiss">
+    <view class="details-item">昵称：{{name}}</view>
+    <view class="details-item">简介：{{details.briefDesc}}</view>
+  </view>
+  <view wx:for="{{details.introduction}}" wx:key="index">
+    <view class="top flex j-between a-center">
+      <view class="title">{{item.ti}}</view>
+      <view class="more">查看更多</view>
+    </view>
+    <view class="title-detail ellipsiss">
+      <rich-text nodes="{{item.txt}}"></rich-text>
+    </view>
+  </view>
+  <view>
+    <view class="top flex j-between a-center">
+      <view class="title">热门话题</view>
+      <view class="more">查看更多</view>
+    </view>
+    <van-collapse value="{{activeNames}}" bind:change="onChange" accordion>
+      <van-collapse-item name="{{index}}" wx:for="{{ details.topicData}}" wx:key="index">
+        <view slot="title" class="flex a-center">
+          <image class="img" src="{{item.coverUrl}}" mode="widthFix" />
+          {{ item.mainTitle}}
+        </view>
+        <view class="topic" wx:for="{{item.topic.content}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+          <view class="topic-content">
+            <rich-text nodes="{{items.content}}"></rich-text>
+          </view>
+        </view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+</view>

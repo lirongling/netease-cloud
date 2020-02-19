@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-collapse": "../../../lib/vant/collapse/index",
+        "van-collapse-item": "../../../lib/vant//collapse-item/index"
+    }
+}

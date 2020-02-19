@@ -44,7 +44,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    /* -webkit-line-clamp: 3; */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
@@ -54,4 +54,8 @@
 
 .border-bottom {
     border-bottom: 1rpx rgb(226, 223, 223) solid;
+}
+
+.title-rightsssss>.van-button {
+    width: 200rpx!important;
 }

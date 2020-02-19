@@ -1,8 +1,11 @@
 @import "../../../app.wxss";
 .container {
     margin-left: 10rpx;
-    position: relative;
+    position: fixed;
+    width: 100%;
     align-items: flex-start;
+    z-index: 999;
+    color: white;
 }
 
 .left {

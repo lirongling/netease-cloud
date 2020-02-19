@@ -1,2 +1,19 @@
-<!--pages/singer/singer.wxml-->
-<text>pages/singer/singer.wxml</text>
+<view class="container">
+  <van-tabs sticky animated swipeable bind:click="onClick">
+    <van-tab title="{{item.name}}" wx:for="{{typeList}}" wx:key="index">
+      <view class="initial {{item.initial.length>0 ? 'initial-top' : ''}}">
+        <scroll-view class="scroll-view_H" scroll-x="true">
+          <view class="initial-item {{indexItems===indexs ? 'active' : ''}}" wx:for="{{item.initial}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs" data-index="{{indexs}}" bind:tap="changeInitial">
+            {{items}}
+          </view>
+        </scroll-view>
+      </view>
+      <view class="content ">
+        <view class="content-item flex j-start a-center" wx:for="{{artistsList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" bind:tap="goDetails">
+          <image class="img" src="{{item.picUrl}}" mode="widthFix" />
+          <view class="name">{{item.name}}</view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

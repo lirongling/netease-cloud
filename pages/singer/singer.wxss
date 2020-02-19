@@ -1,1 +1,58 @@
-/* pages/singer/singer.wxss */
+.container {
+    height: 101%;
+}
+
+.initial {}
+
+.scroll-view_H {
+    /* height: 80rpx; */
+    overflow: hidden;
+    background: #fff;
+    white-space: nowrap;
+    z-index: 9;
+    /* border: 1px solid red; */
+}
+
+.scroll-view_H scroll-view {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+}
+
+.initial-item {
+    display: inline-block;
+    padding: 0 8px;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.active {
+    background: #D81E06;
+    color: white;
+}
+
+.content {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.initial-top {
+    top: 0!important;
+}
+
+.content-top {
+    margin-top: 160rpx;
+}
+
+.content-item {
+    margin: 30rpx auto;
+}
+
+.img {
+    width: 130rpx;
+    border-radius: 20rpx;
+}
+
+.name {
+    margin-left: 60rpx;
+}

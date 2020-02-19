@@ -1,0 +1,33 @@
+<view class="container">
+  <nav></nav>
+  <view class="top" style="background-image:url({{artist.picUrl}})"></view>
+  <view class="title flex j-between">
+    <view class="title-left">
+      <view class="name">{{name}}</view>
+      <view class="fans">粉丝 万</view>
+    </view>
+    <view class="title-right  title-rightsssss flex j-center a-center">
+      <van-icon name="plus" />
+      <text class="right-text">关注</text>
+    </view>
+  </view>
+  <view class="content" id="content-tabs">
+    <view class="tabs">
+      <tabs arr="{{arr}}" bind:send="send"></tabs>
+    </view>
+    <scroll-view refresher-triggered="true" enable-back-to-top="true" scroll-y="{{isFixed}}" style="height: {{contentHeight}}rpx;" scroll-with-animation="true" bindscrolltoupper="upper" bindscrolltolower="lower">
+      <view wx:if="{{tabsIdx===0}}">
+        <details details="{{artistDetails}}" name="{{name}}"></details>
+      </view>
+      <view wx:elif="{{tabsIdx===1}}">
+        <album></album>
+      </view>
+      <view wx:elif="{{tabsIdx===2}}">
+        <song></song>
+      </view>
+      <view wx:else>
+        <video></video>
+      </view>
+    </scroll-view>
+  </view>
+</view>
