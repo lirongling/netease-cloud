@@ -1,0 +1,1 @@
+@import '../common/index.wxss';.van-picker-column{overflow:hidden;font-size:32rpx;color:#999;text-align:center}.van-picker-column__item{padding:0 10rpx}.van-picker-column__item--selected{font-weight:500;color:#333}.van-picker-column__item--disabled{opacity:.3}

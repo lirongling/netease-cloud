@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "nav": "../../component/comm/nav/nav",
+        "btn": "../../component/comm/btn/btn",
+        "van-field": "../../lib/vant/field/index",
+        "van-button": "vant-weapp/button"
+    },
+    "navigationStyle": "custom"
+}

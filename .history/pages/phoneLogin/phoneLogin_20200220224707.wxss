@@ -1,0 +1,25 @@
+.container {
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    width: 90%;
+    margin: 0 auto;
+    top: 150rpx;
+    left: 5%;
+}
+
+.instructions {
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    color: rgb(139, 139, 139);
+}
+
+.input {
+    margin-top: 100rpx;
+}
+
+.van-button {
+    width: 80vw!important;
+}

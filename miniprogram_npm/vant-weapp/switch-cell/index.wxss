@@ -1,0 +1,1 @@
+@import '../common/index.wxss';.van-switch-cell{padding-top:18rpx;padding-bottom:18rpx}.van-switch-cell__switch{vertical-align:middle}

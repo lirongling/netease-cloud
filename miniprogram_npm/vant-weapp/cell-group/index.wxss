@@ -1,0 +1,1 @@
+@import '../common/index.wxss';.van-cell-group__title{font-size:28rpx;padding:30rpx 30rpx 10rpx;color:#999;line-height:32rpx}
