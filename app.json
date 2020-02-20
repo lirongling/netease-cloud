@@ -4,6 +4,9 @@
         "pages/singer/singer",
         "pages/my/my",
         "pages/details/details",
+        "pages/login/login",
+        "pages/phoneLogin/phoneLogin",
+        "pages/emailLogin/emailLogin",
         "pages/singerDetails/singerDetails"
     ],
     "window": {

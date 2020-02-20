@@ -1,2 +1,6 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+  <view class="no-login flex j-center a-center f-column">
+    <view class="explain">手机电脑多端同步，尽享海量高品质音乐</view>
+    <view class="login-bt" hover-class="bt-hover" bind:tap="login">立即登录</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+.btns {
+    /* width: 80vw; */
+    width: 90%!important;
+    border-radius: 40rpx;
+    font-weight: 545;
+}

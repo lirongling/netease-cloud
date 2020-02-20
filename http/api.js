@@ -12,8 +12,8 @@ export default {
     },
     // 获取歌单详情
 
-    getPlaylistDetails(id) {
-        return service.get(`/playlist/detail?id=${id}`)
+    getPlaylistDetails(id, offset, limit) {
+        return service.get(`/playlist/detail?id=${id}&offset=${offset}&limit=${limit}`)
     },
     // 新碟
     getAlbum() {
@@ -48,6 +48,19 @@ export default {
     //获取歌手专辑 
     getArtistAlbum(id, offset, limit) {
         return service.get(`/artist/album?id=${id}&offset=${offset}&limit=${limit}`)
+    },
+    //获取歌手单曲 
+    getArtistSong(id) {
+        return service.get(`/artists?id=${id}`)
+    },
+    //获取歌手单曲 
+    getIsPlay(id) {
+        return service.get(`/check/music?id=${id}`)
+    },
+
+    //获取歌手MV
+    getArtistMv(id, offset, limit) {
+        return service.get(`/artist/mv?id=${id}&offset=${offset}&limit=${limit}`)
     },
     // // 登录
     // login(params) {

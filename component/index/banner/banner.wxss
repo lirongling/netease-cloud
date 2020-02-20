@@ -2,7 +2,7 @@
 .container {
     width: 90%;
     margin: 20px auto;
-    line-height: 80rpx;
+    /* line-height: 80rpx; */
     border-radius: 20rpx;
     overflow: hidden;
 }

@@ -1,1 +1,24 @@
-/* component/singerDetails/album/album.wxss */
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.item {
+    margin: 20rpx auto;
+}
+
+.img {
+    width: 100rpx;
+    border-radius: 12rpx;
+}
+
+.item-right {
+    margin-left: 12rpx;
+}
+
+.time {
+    font-size: 28rpx;
+    margin-top: 10rpx;
+    color: rgb(103, 104, 104);
+}

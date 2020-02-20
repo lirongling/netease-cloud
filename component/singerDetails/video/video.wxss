@@ -1,1 +1,47 @@
-/* component/singerDetails/video/video.wxss */
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.item {
+    margin: 30rpx auto;
+}
+
+.item-left {
+    position: relative;
+}
+
+.img {
+    width: 200rpx;
+    border-radius: 12rpx;
+}
+
+.play {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    color: white;
+    font-size: 25rpx;
+}
+
+.paly-ico {
+    margin-right: 10rpx;
+    font-size: 36rpx;
+}
+
+.item-right {
+    margin-left: 20rpx;
+}
+
+.name {}
+
+.time {
+    margin-top: 10rpx;
+    font-size: 25rpx;
+    color: rgb(163, 164, 165);
+}
+
+.artist-name {
+    margin-left: 10rpx;
+}

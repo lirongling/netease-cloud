@@ -2,7 +2,7 @@
 .container {
     width: 90%;
     margin: 0 auto;
-    margin-top: -40rpx;
+    /* margin-top: -40rpx; */
 }
 
 .content-item {

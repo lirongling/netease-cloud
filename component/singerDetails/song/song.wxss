@@ -1,1 +1,47 @@
-/* component/singerDetails/song/song.wxss */
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.item {
+    margin: 30rpx auto;
+}
+
+.item-left {}
+
+.item-index {
+    font-size: 36rpx;
+    color: rgb(162, 163, 163);
+}
+
+.item-details {
+    margin-left: 20rpx;
+}
+
+.name {
+    font-size: 32rpx;
+}
+
+.alia {
+    margin-top: 10rpx;
+    font-size: 27rpx;
+    color: rgb(127, 128, 128);
+}
+
+.al {
+    width: 300rpx;
+}
+
+.item-right {
+    font-size: 40rpx;
+    color: rgb(92, 92, 94);
+}
+
+.more {
+    margin-left: 30rpx;
+}
+
+.more-img {
+    width: 40rpx;
+}

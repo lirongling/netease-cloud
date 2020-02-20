@@ -57,10 +57,10 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "pages/singerDetails/singerDetails",
 					"pathName": "pages/singerDetails/singerDetails",
-					"query": "id=6731&name=\"赵雷\"",
+					"query": "id=7763&name=张惠妹",
 					"scene": null
 				},
 				{
@@ -68,6 +68,13 @@
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
 					"query": "id=6731&name=\"赵雷\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/phoneLogin/phoneLogin",
+					"pathName": "pages/phoneLogin/phoneLogin",
+					"query": "id=7763&name=张惠妹",
 					"scene": null
 				}
 			]

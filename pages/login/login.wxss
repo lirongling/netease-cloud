@@ -1,0 +1,92 @@
+.container {
+    background: #DB2B1E;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.logo-img {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: 120%;
+}
+
+.content {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+}
+
+.btn {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.img {
+    width: 50rpx;
+    margin: 60rpx 20rpx;
+    border: rgba(216, 216, 216, 0.5) 1px solid;
+    border-radius: 50%;
+    padding: 10rpx;
+}
+
+.check {
+    font-size: 25rpx;
+    color: rgb(179, 178, 178);
+}
+
+.check-tr {
+    animation: go 2s ease-in;
+}
+
+@keyframes go {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-40rpx);
+    }
+    20% {
+        transform: translateX(40rpx);
+    }
+    30% {
+        transform: translateX(-40rpx);
+    }
+    40% {
+        transform: translateX(40rpx);
+    }
+    50% {
+        transform: translateX(-40rpx);
+    }
+    60% {
+        transform: translateX(40rpx);
+    }
+    70% {
+        transform: translateX(-40rpx);
+    }
+    80% {
+        transform: translateX(40rpx);
+    }
+    90% {
+        transform: translateX(40rpx);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.xy {
+    /* margin-left: 5rpx; */
+    color: rgb(218, 216, 216);
+}
+
+.checks {
+    width: 40rpx;
+    height: 40rpx;
+}

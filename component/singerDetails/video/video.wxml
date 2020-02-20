@@ -1,2 +1,19 @@
-<!--component/singerDetails/video/video.wxml-->
-<text>component/singerDetails/video/video.wxml</text>
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="container">
+  <view class="item flex a-center" wx:for="{{mvs}}" wx:key="index">
+    <view class="item-left">
+      <image class="img" src="{{item.imgurl}}" mode="widthFix" />
+      <view class="play flex a-center">
+        <van-icon name="play-circle-o" class="paly-ico" />
+        {{filter.numberVonversion(item.playCount)}}
+      </view>
+    </view>
+    <view class="item-right">
+      <view class="name">{{item.name}}</view>
+      <view class="time">
+        {{item.publishTime}}
+        <text class="artist-name">by:{{item.artist.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

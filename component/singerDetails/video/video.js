@@ -1,23 +1,32 @@
-// component/singerDetails/video/video.js
+//Component Object
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+    properties: {
+        mvs: {
+            type: Array,
+            value: [],
 
-  },
+        },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
+    },
+    data: {
 
-  },
+    },
+    methods: {
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    },
+    created: function() {
 
-  }
-})
+    },
+    attached: function() {
+
+    },
+    ready: function() {
+
+    },
+    moved: function() {
+
+    },
+    detached: function() {
+
+    },
+});

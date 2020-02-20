@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "nav": "../../component/comm/nav/nav",
+        "btn": "../../component/comm/btn/btn"
+    },
+    "navigationStyle": "custom"
+}

@@ -5,7 +5,7 @@
     width: 100%;
     align-items: flex-start;
     z-index: 999;
-    color: white;
+    /* color: white; */
 }
 
 .left {

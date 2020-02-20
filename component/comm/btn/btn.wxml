@@ -1,0 +1,3 @@
+<button class="btns" disabled="{{disabled}}" style="background:{{background}};color:{{color}}" catch:tap="click">
+  {{btnText}}
+</button>

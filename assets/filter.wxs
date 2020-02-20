@@ -26,6 +26,7 @@ var filter = {
             return rag
         },
 
+
         // /**
         //  * 搜索关键词高亮显示
         //  * @param String str 要替换的关键词
@@ -44,5 +45,6 @@ var filter = {
 module.exports = {
     numberToFixed: filter.numberToFixed,
     numberVonversion: filter.numberVonversion,
-    color: filter.color
+    color: filter.color,
+
 }

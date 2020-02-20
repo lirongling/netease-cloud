@@ -1,2 +1,11 @@
-<!--component/singerDetails/album/album.wxml-->
-<text>component/singerDetails/album/album.wxml</text>
+<view class="container">
+  <view class="item flex a-center" wx:for="{{hotAlbums}}" wx:key="index">
+    <view class="item-left">
+      <image class="img" src="{{item.picUrl}}" mode="widthFix" />
+    </view>
+    <view class="item-right">
+      <view class="name">{{item.name}}</view>
+      <view class="time">发行时间：{{item.publishTime}}</view>
+    </view>
+  </view>
+</view>

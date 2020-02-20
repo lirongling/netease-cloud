@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="logo-img" style="background-image: url('../../assets/images/logo.jpg')"></view>
+  <nav></nav>
+  <view class="content flex f-column j-center">
+    <view class="btn">
+      <btn bind:clicks="phoneLogin"></btn>
+    </view>
+    <view class="else-login flex j-center ">
+      <image class="img" mode="widthFix" src="../../assets/images/weChat.png" />
+      <image class="img" mode="widthFix" src="../../assets/images/qq.png" />
+      <image class="img" mode="widthFix" src="../../assets/images/weibo.png" />
+      <image class="img" mode="widthFix" src="../../assets/images/yi.png" data-index="{{1}}" bind:tap="phoneLogin" />
+    </view>
+    <view class="check flex j-center a-center {{isTr ? 'check-tr' : ''}}">
+      <checkbox-group bindchange="change">
+        <checkbox checked="{{checked}}"></checkbox>
+      </checkbox-group>
+      同意
+      <text class="xy">《用户协议》</text>
+      <text class="xy">《隐私协议》</text>
+      <text class="xy">《儿童隐私协议》</text>
+    </view>
+  </view>
+</view>

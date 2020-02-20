@@ -1,1 +1,21 @@
-/* pages/my/my.wxss */
+.no-login {
+    width: 100%;
+    height: 100vh;
+}
+
+.explain {
+    font-size: 30rpx;
+    color: rgb(133, 134, 134);
+}
+
+.login-bt {
+    margin-top: 150rpx;
+    padding: 15rpx 80rpx;
+    background: linear-gradient(to right, #ff6034, #ee0a24);
+    border-radius: 40rpx;
+    color: white;
+}
+
+.bt-hover {
+    background: linear-gradient(to right, #ad4123, #c4081e);
+}

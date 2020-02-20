@@ -1,2 +1,24 @@
-<!--component/singerDetails/song/song.wxml-->
-<text>component/singerDetails/song/song.wxml</text>
+<view class="container">
+  <view class="item flex j-between a-center" wx:for="{{hotSongs}}" wx:key="index">
+    <view class="item-left flex  a-center ">
+      <view class="item-index">{{index+1}}</view>
+      <view class="item-details">
+        <view class="name">{{item.name}}</view>
+        <view class="alia  flex a-center">
+          <text class="flex a-center" wx:for="{{item.ar}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+            <text>{{items.name}}-</text>
+          </text>
+          <view class="al ellipsis flex a-center">{{item.al.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="item-right flex  a-center">
+      <view class="action" data-id="{{item.id}}" catch:tap="playMusic">
+        <van-icon name="play-circle-o" class="paly-ico" />
+      </view>
+      <view class="more">
+        <image class="more-img" src="../../../assets/images/more.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>

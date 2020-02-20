@@ -1,23 +1,57 @@
-// component/singerDetails/song/song.js
+import api from "../../../http/api";
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+    properties: {
+        hotSongs: {
+            type: Array,
+            value: [],
 
-  },
+        },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
+    },
+    data: {
 
-  },
+    },
+    methods: {
+        playMusic(e) {
+            let a = e.currentTarget.dataset.id
+            this.getIsPlay(a)
+        },
+        getIsPlay(id) {
+            wx.showLoading({
+                title: '加载中',
+            });
+            api.getIsPlay(id).then(res => {
+                wx.hideLoading();
+                if (res.success) {
+                    wx.showToast({
+                        title: res.message,
+                        icon: 'none',
+                    });
+                } else {
+                    wx.showToast({
+                        title: res.message,
+                        icon: 'none',
+                    });
+                }
+            }).catch(err => {
+                wx.hideLoading();
+                console.log(err);
+            })
+        }
+    },
+    created: function() {
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    },
+    attached: function() {
 
-  }
-})
+    },
+    ready: function() {
+
+    },
+    moved: function() {
+
+    },
+    detached: function() {
+
+    },
+});

@@ -1,23 +1,36 @@
-// component/singerDetails/album/album.js
+//Component Object
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+    properties: {
+        myProperty: {
+            type: String,
+            value: '',
+            observer: function() {}
+        },
+        hotAlbums: {
+            type: Array,
+            value: [],
+        }
 
-  },
+    },
+    data: {
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
+    },
+    methods: {
 
-  },
+    },
+    created: function() {
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    },
+    attached: function() {
 
-  }
-})
+    },
+    ready: function() {
+
+    },
+    moved: function() {
+
+    },
+    detached: function() {
+
+    },
+});
