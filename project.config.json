@@ -77,6 +77,13 @@
 					"pathName": "pages/phoneLogin/phoneLogin",
 					"query": "id=7763&name=张惠妹",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

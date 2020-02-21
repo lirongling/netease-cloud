@@ -1,18 +1,19 @@
 <view class="container">
   <nav></nav>
+  <van-notify id="van-notify" />
   <view class="content" style="padding-top:{{$.navTop*2+$.navHeights*2}}rpx">
     <view class="instructions">未注册手机号登录后将自动创建账号</view>
     <view class="input">
       <van-cell-group>
-        <van-field value="{{ username }}" type="number" required clearable label="手机号" icon="question-o" placeholder="请输入手机号" bind:click-icon="onClickIcon" />
-        <van-field value="{{ password }}" type="password" label="密码" placeholder="请输入密码" required border="{{ false }}" />
+        <van-field value="{{ username }}" type="number" required clearable label="手机号" icon="question-o" placeholder="请输入手机号" bind:blur="phoneBlur" bind:click-icon="onClickIcon" />
+        <van-field value="{{ password }}" type="{{passType}}" label="密码" placeholder="请输入密码" bind:blur="passBlur" icon="info-o" required border="{{ true }}" bind:click-icon="showPass" />
       </van-cell-group>
       <view class="btn">
         <view class="btns">
-          <van-button block round plain color="#7232dd">登录</van-button>
+          <van-button block round color="#DB2B1E" bind:click="login">登录</van-button>
         </view>
         <view class="btns">
-          <van-button block round plain type="primary">注册</van-button>
+          <van-button block round plain color="#7232dd" bind:click="register">注册</van-button>
         </view>
       </view>
     </view>

@@ -1,6 +1,28 @@
 <view class="container">
-  <view class="no-login flex j-center a-center f-column">
+  <view class="no-login flex j-center a-center f-column" wx:if="{{$.userInfo.loginType!==1}}">
     <view class="explain">手机电脑多端同步，尽享海量高品质音乐</view>
     <view class="login-bt" hover-class="bt-hover" bind:tap="login">立即登录</view>
+  </view>
+  <view class="content" style="background:url({{}})" wx:else>
+    <view class="logins flex f-column a-center j-start">
+      <view class="logins-top flex a-center">
+        <image class="img" src="{{$.userInfo.avatarUrl}}" mode="widthFix" />
+        <view class="user">
+          <view class="user-name">{{$.userInfo.nickname}}</view>
+          <view class="follows flex j-center a-center">
+            关注：{{$.userInfo.follows}}
+            <text class="split">|</text>
+            粉丝：{{$.userInfo.followeds}}
+          </view>
+        </view>
+        <view class="sign flex j-center a-center">签到</view>
+      </view>
+      <view class="switch flex j-around">
+        <view class="switch-item flex a-center f-column" wx:for="{{arr}}" wx:key="index" data-index="{{index}}" bind:tap="clickItem">
+          <image class="switch-img" src="{{item.ico}}" mode="widthFix" />
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

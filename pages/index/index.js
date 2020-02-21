@@ -3,7 +3,7 @@ import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
 create.Page(store, {
-    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights'],
+    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights','userInfo'],
     data: {
         showPop: false,
         personalized: {
@@ -203,6 +203,12 @@ create.Page(store, {
         this.store.data.navRight = windowWidth - menuButton.right
 
     },
+    getUserInfo(){
+        if (wx.getStorageSync('userInfo')) {
+            this.store.data.userInfo=wx.getStorageSync('userInfo')
+            console.log(this.store.data.userInfo);
+        }
+    },
     //options(Object)
     onLoad: function(options) {
         this.getPersonalized()
@@ -212,6 +218,7 @@ create.Page(store, {
         this.getProgram()
         this.getDjprogram()
         this.getNavInfo()
+        this.getUserInfo()
 
 
     },

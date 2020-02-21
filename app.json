@@ -5,6 +5,8 @@
         "pages/my/my",
         "pages/details/details",
         "pages/login/login",
+        "pages/edit/edit",
+        "pages/register/register",
         "pages/phoneLogin/phoneLogin",
         "pages/emailLogin/emailLogin",
         "pages/singerDetails/singerDetails"

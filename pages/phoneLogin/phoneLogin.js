@@ -1,13 +1,131 @@
 import create from '../../utils/store/create'
 import store from '../../store/index'
+import Notify from '../../lib/vant/notify/notify';
+import api from "../../http/api";
 create.Page(store, {
-    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights'],
+    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo'],
     /**
      * 页面的初始数据
      */
     data: {
-        userphone: null,
-        password: null
+        userphone: '',
+        password: '',
+        passType: 'password',
+        flagePhone: false,
+        flagePass: false,
+    },
+    onClickIcon() {
+        wx.showToast({
+            title: '密码为十一位数字',
+            icon: 'none',
+
+        });
+    },
+    showPass() {
+        if (this.data.passType === 'password') {
+            this.setData({
+                passType: 'text'
+            })
+        } else {
+            this.setData({
+                passType: 'password'
+            })
+        }
+    },
+    // 用户名验证
+    phoneBlur(e) {
+        this.data.flagePhone = false;
+        let a = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+        let b = e.detail.value
+        if (b.trim() === "") {
+            // 警告通知
+            Notify({ type: "warning", message: "用户名不能为空" });
+            this.setData({
+                flagePhone: false,
+
+            })
+        } else if (!a.test(b)) {
+            Notify({ type: "warning", message: "手机号不合法" });
+            this.setData({
+                flagePhone: false,
+            })
+        } else {
+            this.setData({
+                flagePhone: true,
+                userphone: Number(b)
+            })
+        }
+    },
+    // 密码验证
+    passBlur(e) {
+        this.data.flagePass = false;
+        let b = e.detail.value
+        if (b.trim() === "") {
+            // 警告通知
+            Notify({ type: "warning", message: "密码不能为空" });
+            this.setData({
+                flagePass: false,
+            })
+        } else if (b.length < 6) {
+            Notify({ type: "warning", message: "密码不能小于6位" });
+            this.setData({
+                flagePass: false,
+            })
+        } else {
+            this.setData({
+                flagePass: true,
+                password: b
+            })
+        }
+    },
+    login() {
+        if (this.data.flagePass && this.data.flagePhone) {
+            wx.showLoading({
+                title: '加载中',
+            });
+            let a = Number(this.data.userphone)
+            let b = String(this.data.password)
+            api.loginbyTel(a, b).then(res => {
+                    wx.hideLoading();
+                    if (res.code === 200) {
+                        wx.showToast({
+                            title: '登录成功',
+                            icon: 'success',
+                        });
+                        res.profile.loginType = res.loginType
+                        this.store.data.userInfo = res.profile
+                        wx.setStorageSync('userInfo', res.profile);
+                        wx.switchTab({
+                            url: '/pages/my/my',
+                        });
+
+
+                    } else {
+                        wx.showToast({
+                            title: res.message,
+                            icon: 'none',
+
+                        });
+                    }
+                }).catch(err => {
+                    // response
+                    wx.hideLoading();
+                    wx.showToast({
+                        title: err.response.data.message,
+                        icon: 'none',
+
+                    });
+                })
+                // loginbyTel
+        } else {
+            Notify({ type: "warning", message: "请输入完整" });
+        }
+    },
+    register() {
+        wx.navigateTo({
+            url: '/pages/register/register',
+
+        });
     },
 
     /**

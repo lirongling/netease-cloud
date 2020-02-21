@@ -4,10 +4,10 @@
 
 .content {
     /* position: absolute; */
-    width: 90%;
+    width: 93%;
     margin: 0 auto;
     /* top: 150rpx;
-  left: 5%; */
+left: 5%; */
 }
 
 .instructions {
@@ -30,4 +30,15 @@
 
 .btns {
     margin: 60rpx auto;
+}
+.input{
+  min-width:200rpx!important
+}
+.sms-btn{
+  width:200rpx!important
+  /* overflow:hidden */
+  
+}
+.sms-btn.van-button{
+  width:200rpx!important
 }

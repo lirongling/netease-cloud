@@ -3,6 +3,7 @@ export default {
         navHeight: null,
         navTop: null,
         navRight: null,
-        windowHeight: null
+        windowHeight: null,
+        userInfo:{}
     },
 }

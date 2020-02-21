@@ -62,6 +62,38 @@ export default {
     getArtistMv(id, offset, limit) {
         return service.get(`/artist/mv?id=${id}&offset=${offset}&limit=${limit}`)
     },
+    // 登录页
+    // 登录页有两个接口，一个手机号，一个邮箱登录
+    // 手机号登录(需传入两个参数，phone: 手机号码 password: 密码)
+    loginbyTel(phone, password) {
+        return service.get(`/login/cellphone?phone=${phone}&password=${password}`)
+    },
+    // 邮箱登录(email: 163 网易邮箱，password: 密码)
+    loginbyEmail(email, password) {
+        return service.get(`/login?email=${email}&password=${password}`)
+    },
+    // 注册页
+    // 发送验证码(phone: 手机号码)
+    sendCaptcha(phone) {
+        return service.get(`/captcha/sent?phone=${phone}`)
+    },
+    // 验证验证码(phone: 手机号,captcha: 验证码)
+    verifyCaptcha(phone, captcha) {
+        return service.get(`/captcha/verify?phone=${phone}&captcha=${captcha}`)
+    },
+    // 注册(captcha: 验证码,phone : 手机号码,password: 密码,nickname: 昵称)
+    register( phone, password,captcha, nickname) {
+        return service.get(`/register/cellphone?phone=${phone}&password=${password}&captcha=${captcha}&nickname=${nickname}`)
+    },
+    // 检测手机是否已被注册(phone: 手机号)
+    checkTel(phone) {
+        return service.get(`/cellphone/existence/check?phone=${phone}`)
+    },
+    // 获取用户信息
+    subcount() {
+        return service.get(`/user/subcount`)
+    },
+
     // // 登录
     // login(params) {
     //     return service.post('login', params)

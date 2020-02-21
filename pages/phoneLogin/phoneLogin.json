@@ -3,7 +3,8 @@
         "nav": "../../component/comm/nav/nav",
         "btn": "../../component/comm/btn/btn",
         "van-field": "vant-weapp/field",
-        "van-button": "vant-weapp/button"
+        "van-button": "vant-weapp/button",
+        "van-notify": "../../lib/vant/notify/index"
     },
     "navigationStyle": "custom"
 }
