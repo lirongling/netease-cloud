@@ -1,4 +1,50 @@
 .top {
-    background: linear-gradient(to right, #d3959b, #bfe6ba);
-    height: 200rpx;
+    /* background: linear-gradient(to right, #d3959b, #bfe6ba); */
+    background-size: 10000rpx;
+    background-position: center 40%;
+    /* height: 200rpx; */
+}
+
+.content {}
+
+.content-introduce {
+    width: 90%;
+    margin: 30rpx auto;
+}
+
+.introduce-left {
+    width: 40%;
+}
+
+.introduce-img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.introduce-right {
+    width: 55%;
+}
+
+.introduce-name {
+    font-size: 34rpx;
+    color: rgb(247, 234, 234);
+    -webkit-line-clamp: 2 !important;
+    font-weight: 550;
+}
+
+.introduce-creator {
+    color: rgb(231, 227, 227);
+    font-size: 29rpx;
+    margin-top: 20rpx;
+}
+
+.creator-img {
+    width: 50rpx;
+    margin-right: 10rpx;
+    border-radius: 50%;
+}
+
+.introduce-description {
+    font-size: 24rpx;
+    color: rgb(229, 226, 226);
 }

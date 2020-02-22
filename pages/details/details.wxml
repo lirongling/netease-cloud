@@ -1,5 +1,25 @@
 <view>
-  <view class="top">
+  <view class="top" style="background-image:url({{playlist.backgroundCoverUrl}})">
     <nav></nav>
+    <view class="content" style="padding-top:{{$.navTop*2+$.navHeight*2}}rpx;">
+      <view class="content-introduce flex j-between">
+        <view class="introduce-left">
+          <image class="introduce-img" mode="widthFix" src="{{playlist.coverImgUrl}}" />
+        </view>
+        <view class="introduce-right flex f-column j-between">
+          <view>
+            <view class="introduce-name ellipsiss">{{playlist.name}}</view>
+            <view class="introduce-creator flex a-center">
+              <image class="creator-img" src="{{playlist.creator.avatarUrl}}" mode="widthFix" />
+              {{playlist.creator.nickname}}
+            </view>
+          </view>
+          <view class="introduce-description ellipsiss">{{playlist.description}}</view>
+        </view>
+      </view>
+      <view class="select">
+        <image src="../../assets/images/message.png" />
+      </view>
+    </view>
   </view>
 </view>

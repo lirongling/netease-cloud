@@ -3,7 +3,7 @@ import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
 create.Page(store, {
-    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights','userInfo'],
+    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo'],
     data: {
         showPop: false,
         personalized: {
@@ -189,7 +189,7 @@ create.Page(store, {
         let windowWidth = null
         wx.getSystemInfo({
             success: function(res) {
-                console.log(res);
+
                 statusBarHeight = res.statusBarHeight
                 windowWidth = res.windowWidth
                 store.data.windowHeight = res.windowHeight
@@ -203,9 +203,9 @@ create.Page(store, {
         this.store.data.navRight = windowWidth - menuButton.right
 
     },
-    getUserInfo(){
+    getUserInfo() {
         if (wx.getStorageSync('userInfo')) {
-            this.store.data.userInfo=wx.getStorageSync('userInfo')
+            this.store.data.userInfo = wx.getStorageSync('userInfo')
             console.log(this.store.data.userInfo);
         }
     },

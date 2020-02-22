@@ -1,4 +1,4 @@
-<view wx:if="{{$.navTop!==null}}" class="container  flex " style="padding-top:{{$.navTop*2}}rpx;margin-right:{{$.navRight*2}}rpx;height:{{$.navHeight}}rpx">
+<view wx:if="{{$.navTop!==null}}" class="container  flex " style="top:{{$.navTop*2}}rpx;margin-right:{{$.navRight*2}}rpx;height:{{$.navHeights}}rpx">
   <view class="left flex a-center">
     <van-icon name="arrow-left" class="back" bind:tap="back" />
     <van-icon name="wap-home-o" bind:tap="home" />

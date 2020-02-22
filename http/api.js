@@ -1,7 +1,22 @@
 import service from './index'
 const API_HOST = 'http://49.233.66.125:3000' //接口地址
+const backgroundArr = ['https://p1.music.126.net/xMiB04V4Pnmcekrxs0Dd8A==/109951164729174178.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/1D0stTcw5g5YP-0XtrpAVQ==/109951164730433871.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/uwgBspROoUNwmtSr8tkXaA==/109951164731451720.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/BypmhF9O2lrDcr4ycBNegQ==/109951164731148058.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/LPisE4jOun0_wX28G1SsIg==/109951164730488259.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/xMiB04V4Pnmcekrxs0Dd8A==/109951164729174178.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/y0j7_KrJjNjAT4BiJBdylw==/109951164730450218.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/7IEidCrO9YIlKeoNnpDbtw==/109951164730428915.jpg?imageView&blur=40x20',
+    'https://p1.music.126.net/1D0stTcw5g5YP-0XtrpAVQ==/109951164730433871.jpg?imageView&blur=40x20'
+]
 export default {
-
+    // 背景图
+    background() {
+        let a = backgroundArr.length - 1
+        let b = parseInt(Math.random() * a)
+        return backgroundArr[b]
+    },
     // 获取轮播图
     getBanners() {
         return service.get('banner')
@@ -12,8 +27,8 @@ export default {
     },
     // 获取歌单详情
 
-    getPlaylistDetails(id, offset, limit) {
-        return service.get(`/playlist/detail?id=${id}&offset=${offset}&limit=${limit}`)
+    getPlaylistDetails(id) {
+        return service.get(`/playlist/detail?id=${id}`)
     },
     // 新碟
     getAlbum() {
@@ -82,7 +97,7 @@ export default {
         return service.get(`/captcha/verify?phone=${phone}&captcha=${captcha}`)
     },
     // 注册(captcha: 验证码,phone : 手机号码,password: 密码,nickname: 昵称)
-    register( phone, password,captcha, nickname) {
+    register(phone, password, captcha, nickname) {
         return service.get(`/register/cellphone?phone=${phone}&password=${password}&captcha=${captcha}&nickname=${nickname}`)
     },
     // 检测手机是否已被注册(phone: 手机号)
@@ -93,7 +108,22 @@ export default {
     subcount() {
         return service.get(`/user/subcount`)
     },
+    // 修改用户信息
+    //     gender: 性别 0:保密 1:男性 2:女性
 
+    // birthday: 出生日期,时间戳 unix timestamp
+
+    // nickname: 用户昵称
+
+    // province: 省份id
+
+    // city: 城市id
+
+    // signature：用户签名
+    // /user/update?gender=0&signature=测试签名&city=440300&nickname=binary&birthday=1525918298004&province=440000
+    updateUser(signature, city, nickname, birthday, province) {
+        return service.get(`user/update?gender=0&signature=${signature}&city=${city}&nickname=${nickname}&birthday=${birthday}&province=${province}`)
+    },
     // // 登录
     // login(params) {
     //     return service.post('login', params)

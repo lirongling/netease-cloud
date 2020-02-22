@@ -26,6 +26,10 @@ VantComponent({
         shape: {
             type: String,
             value: 'round'
+        },
+        iconSize: {
+            type: null,
+            value: 20
         }
     },
     methods: {

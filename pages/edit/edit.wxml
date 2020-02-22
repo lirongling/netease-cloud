@@ -1,5 +1,36 @@
 <view class="container">
   <van-cell-group>
-    <van-field label="昵称" input-align="right" value="{{ $.userInfo.nickname }}" placeholder="请输入用户名" />
+    <view class="name">
+      <van-field label="昵称" bind:change="changeName" border="{{ false }}" input-align="right" value="{{ nickname }}" placeholder="请输入用户名" />
+    </view>
+    <view class="sex flex j-between a-center">
+      <view class="sex-title">性别</view>
+      <van-dropdown-menu >
+        <van-dropdown-item bind:change="changeSex" value="{{ sexValue }}" options="{{ sexOption }}" />
+      </van-dropdown-menu>
+    </view>
+    <view class="birthday sex flex j-between a-center">
+      <view class="sex-title">生日</view>
+      <view class="sex-title" bind:tap="checkTime">{{birthday}}</view>
+    </view>
+    <view class="birthday city sex flex j-between a-center">
+      <view class="sex-title">城市</view>
+      <view class="sex-title" bind:tap="checkCity">{{city}}</view>
+    </view>
+    <view class="signature">
+      <van-field value="{{ signature }}" label="签名" type="textarea" placeholder="请输入个性签名" input-align="right" clearable bind:blur="signatureBlur" autosize border="{{ false }}" />
+    </view>
+    <view class="btn">
+      <van-button block round color="linear-gradient(to right, #4bb0ff, #6149f6)" bind:click="sure">
+        确认修改
+      </van-button>
+    </view>
+   
   </van-cell-group>
+  <van-popup show="{{ showPop }}" position="bottom" custom-style="height: auto;" bind:close="onClose">
+    <van-datetime-picker column-class="column_class" active-class="active-class" type="date" value="{{ currentDate }}" bind:confirm="confirmBirthday" bind:cancel="onClose" bind:input="onInput" min-date="{{minDate}}" max-date="{{ maxDate }}" formatter="{{ formatter }}" />
+  </van-popup>
+  <van-popup show="{{ showCity }}" position="bottom" custom-style="height: auto;" bind:close="onClose1">
+    <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" value="{{areaValue}}" bind:cancel="onClose1" bind:change="confirmCity"  />
+  </van-popup>
 </view>

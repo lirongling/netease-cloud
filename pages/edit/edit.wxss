@@ -1,3 +1,30 @@
 .container {
     padding-top: 80rpx;
 }
+
+.sex,
+.birthday {
+    padding: 20rpx 32rpx;
+    font-size: 28rpx;
+    color: #323233;
+    /* border-bottom: 2rpx solid #ebedf0; */
+    box-sizing: border-box;
+    line-height: 48rpx;
+}
+
+.column_class {
+    color: #6d6d6d !important;
+}
+
+.city,
+.signature {
+    margin-top: 25rpx;
+}
+
+.btn {
+    margin-top: 100rpx;
+}
+
+.van-button {
+    width: 80vw !important;
+}

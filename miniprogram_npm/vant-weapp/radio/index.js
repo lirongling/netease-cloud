@@ -25,6 +25,10 @@ VantComponent({
         shape: {
             type: String,
             value: 'round'
+        },
+        iconSize: {
+            type: null,
+            value: 20
         }
     },
     methods: {
@@ -33,9 +37,10 @@ VantComponent({
             instance.$emit('input', value);
             instance.$emit('change', value);
         },
-        onChange(event) {
-            console.log(event);
-            this.emitChange(this.data.name);
+        onChange() {
+            if (!this.data.disabled) {
+                this.emitChange(this.data.name);
+            }
         },
         onClickLabel() {
             const { disabled, labelDisabled, name } = this.data;
