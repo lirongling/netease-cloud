@@ -4,6 +4,7 @@
         "banner": "../../component/index/banner/banner",
         "recommended": "../../component/index/recommended/recommended",
         "recommend": "../../component/index/recommend/commend",
+        "search": "../../component/index/search/search",
         "van-popup": "../../lib/vant/popup/index"
 
     }

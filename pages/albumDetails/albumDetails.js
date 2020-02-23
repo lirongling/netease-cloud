@@ -2,9 +2,12 @@ import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
 create.Page(store, {
+
+    /**
+     * 页面的初始数据
+     */
     data: {
         id: null,
-        number: 0,
         playlist: {},
         contentHeight: null,
         selectArr: [{
@@ -31,35 +34,6 @@ create.Page(store, {
             scrollTop: 0
         })
     },
-    // 获取歌单详情
-    getPlaylistDetails(id) {
-        wx.showLoading({
-            title: '加载中',
-        });
-        api.getPlaylistDetails(id).then(res => {
-            wx.hideLoading();
-
-            if (res.code === 200) {
-
-                if (!res.playlist.backgroundCoverUrl) {
-                    res.playlist.backgroundCoverUrl = api.background()
-                }
-                this.data.selectArr[0].name = res.playlist.commentCount
-                this.data.selectArr[1].name = res.playlist.shareCount
-                this.setData({
-                    playlist: res.playlist,
-                    selectArr: this.data.selectArr
-                })
-                console.log(this.data.playlist);
-                setTimeout(() => {
-                    this.getHeight()
-                }, 1000)
-            }
-        }).catch(err => {
-            wx.hideLoading();
-            console.log(err);
-        })
-    },
     // 获取新碟详情
     getAlbumDetails(id) {
         wx.showLoading({
@@ -67,23 +41,24 @@ create.Page(store, {
         });
         api.getAlbumDetails(id).then(res => {
             wx.hideLoading();
-            console.log(res);
-            // if (res.code === 200) {
 
-            //     if (!res.playlist.backgroundCoverUrl) {
-            //         res.playlist.backgroundCoverUrl = api.background()
-            //     }
-            //     this.data.selectArr[0].name = res.playlist.commentCount
-            //     this.data.selectArr[1].name = res.playlist.shareCount
-            //     this.setData({
-            //         playlist: res.playlist,
-            //         selectArr: this.data.selectArr
-            //     })
-            //     console.log(this.data.playlist);
-            //     setTimeout(() => {
-            //         this.getHeight()
-            //     }, 1000)
-            // }
+            if (res.code === 200) {
+
+                if (!res.album.blurPicUrl) {
+                    res.album.blurPicUrl = api.background()
+                }
+                this.data.selectArr[0].name = res.album.info.commentCount
+                this.data.selectArr[1].name = res.album.info.shareCount
+                this.setData({
+                    playlist: res,
+                    selectArr: this.data.selectArr
+                })
+                console.log(this.data.playlist);
+
+                setTimeout(() => {
+                    this.getHeight()
+                }, 1000)
+            }
         }).catch(err => {
             wx.hideLoading();
             console.log(err);
@@ -105,48 +80,65 @@ create.Page(store, {
         }).exec()
 
     },
-    //options(Object)
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad: function(options) {
-        let number = options.number
-        if (number == 1) {
-            this.getPlaylistDetails(options.id)
-        } else if (number == 2) {
-            this.getAlbumDetails(options.id)
-        }
+
+        this.getAlbumDetails(options.id)
+
         this.setData({
             id: options.id,
-            number: options.number
         })
-
-
-
     },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
     onReady: function() {
 
     },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
     onShow: function() {
 
     },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
     onHide: function() {
 
     },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
     onUnload: function() {
 
     },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
     onPullDownRefresh: function() {
 
     },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
     onReachBottom: function() {
 
     },
+
+    /**
+     * 用户点击右上角分享
+     */
     onShareAppMessage: function() {
 
-    },
-    onPageScroll: function() {
-
-    },
-    //item(index,pagePath,text)
-    onTabItemTap: function(item) {
-
     }
-});
+})

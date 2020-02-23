@@ -1,16 +1,18 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="top">
+  <view class="top" wx:if="{{!showPop}}">
     <indexTop bind:onfocus="onFocus"></indexTop>
   </view>
   <view class="content">
     <banner></banner>
     <recommended></recommended>
-    <recommend singData="{{personalized}}"></recommend>
-    <recommend singData="{{albums}}" bind:selects="select"></recommend>
-    <recommend singData="{{newMv}}"></recommend>
-    <recommend singData="{{newDjprogram}}"></recommend>
-    <recommend singData="{{newProgram}}"></recommend>
+    <recommend singData="{{personalized}}" number="{{1}}"></recommend>
+    <recommend singData="{{albums}}" number="{{2}}" bind:selects="select"></recommend>
+    <recommend singData="{{newMv}}" number="{{4}}"></recommend>
+    <recommend singData="{{newDjprogram}}" number="{{5}}"></recommend>
+    <recommend singData="{{newProgram}}" number="{{6}}"></recommend>
   </view>
-  <van-popup show="{{showPop}}" position="bottom" custom-style="height: 100%;"></van-popup>
+  <van-popup show="{{showPop}}" position="bottom" custom-style="height: 100%;">
+    <search></search>
+  </van-popup>
 </view>

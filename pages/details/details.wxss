@@ -14,11 +14,25 @@
 
 .introduce-left {
     width: 40%;
+    position: relative;
 }
 
 .introduce-img {
     width: 100%;
     border-radius: 10%;
+}
+
+.play {
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+    color: white;
+    font-size: 29rpx;
+}
+
+.paly-ico {
+    margin-right: 10rpx;
+    font-size: 36rpx;
 }
 
 .introduce-right {
@@ -47,4 +61,54 @@
 .introduce-description {
     font-size: 24rpx;
     color: rgb(229, 226, 226);
+}
+
+.select {
+    padding: 50rpx auto;
+}
+
+.select-item {
+    width: 20%;
+    color: rgb(245, 245, 245);
+}
+
+.select-ico {
+    width: 70rpx;
+}
+
+.select-name {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+}
+
+.content-list {
+    background: white;
+    margin-top: 50rpx;
+    border-radius: 40rpx 40rpx 0 0;
+    overflow: hidden;
+}
+
+.list-top {
+    width: 90%;
+    margin: 30rpx auto;
+}
+
+.paly-all {
+    margin-left: 15rpx;
+}
+
+.paly-icos {
+    font-size: 39rpx;
+}
+
+.list-mount {
+    font-size: 30rpx;
+    color: rgb(70, 70, 70);
+}
+
+.list-right {
+    padding: 15rpx 20rpx;
+    background: #FB4320;
+    border-radius: 20rpx;
+    color: white;
 }

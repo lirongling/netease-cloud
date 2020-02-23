@@ -1,0 +1,60 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 20rpx auto;
+}
+
+.title {
+    font-weight: 550;
+    margin: 20rpx auto;
+    margin-top: 60rpx;
+}
+
+.artists-item {
+    margin: 20rpx auto;
+}
+
+.artists-img {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.artists-details {
+    margin-left: 20rpx;
+}
+
+.artists-name {
+    font-size: 31rpx;
+}
+
+.artists-type {
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: rgb(100, 100, 100);
+}
+
+.artists-imgs {
+    width: 50rpx;
+}
+
+.introduce {
+    margin: 20rpx auto;
+}
+
+.introduce-class {
+    font-size: 28rpx;
+    color: rgb(100, 100, 100);
+}
+
+.channels {
+    font-size: 24rpx;
+    padding: 5rpx 8rpx;
+    border: rgb(212, 55, 55) 2rpx solid;
+    color: rgb(212, 55, 55);
+}
+
+.introduce-state {
+    margin-top: 10rpx;
+    color: rgb(100, 100, 100);
+}

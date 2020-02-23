@@ -1,0 +1,65 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 10rpx auto;
+}
+
+.total {
+    margin: 20rpx auto;
+}
+
+.total-left {
+    font-size: 32rpx;
+    font-weight: 550;
+}
+
+.total-right {
+    margin-right: 20rpx;
+    font-size: 28rpx;
+}
+
+.sore {
+    margin-right: 20rpx;
+}
+
+.ico {
+    font-size: 32rpx;
+    margin-right: 10rpx;
+}
+
+.item {
+    margin: 30rpx auto;
+}
+
+.item-index {
+    font-size: 30rpx;
+    color: rgb(73, 73, 73);
+    margin-left: 10rpx;
+}
+
+.item-details {
+    margin-left: 20rpx;
+}
+
+.item-name {
+    font-size: 30rpx;
+}
+
+.details-bottom {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: rgb(170, 170, 170);
+}
+
+.playedNum,
+.duration {
+    margin-left: 20rpx;
+}
+
+.details-ico {
+    font-size: 26rpx;
+}
+
+.more {
+    width: 60rpx;
+}

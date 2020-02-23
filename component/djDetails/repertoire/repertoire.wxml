@@ -1,0 +1,40 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="container">
+  <view class="total flex j-between a-center">
+    <view class="total-left">共{{songs.length}}期</view>
+    <view class="total-right flex a-center">
+      <view class="sore flex a-center">
+        <van-icon name="down" class="ico" />
+        排序
+      </view>
+      <view class="chose flex a-center">
+        <van-icon name="bars" class="ico" />
+        多选
+      </view>
+    </view>
+  </view>
+  <view class="item flex a-center j-between" wx:for="{{songs}}" wx:key="index">
+    <view class="item-left flex a-center">
+      <view class="item-index">{{index}}</view>
+      <view class="item-details">
+        <view class="item-name">{{item.name}}</view>
+        <view class="details-bottom flex">
+          <view class="item-artist" wx:for="{{item.artists}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+            {{items.name}}
+          </view>
+          <view class="playedNum flex a-center">
+            <van-icon name="play-circle-o" class="details-ico" />
+            {{filter.numberVonversion(item.playedNum)}}
+          </view>
+          <view class="duration flex a-center">
+            <van-icon name="underway-o" details-ico />
+            {{item.duration}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item-right flex a-center">
+      <image class="more" src="../../../assets/images/more.png" mode="widthFix" />
+    </view>
+  </view>
+</view>

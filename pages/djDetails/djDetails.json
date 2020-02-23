@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "van-icon": "vant-weapp/icon",
+        "van-button": "vant-weapp/button",
+        "van-tab": "vant-weapp/tab",
+        "van-tabs": "vant-weapp/tabs",
+        "details": "../../component/djDetails/details/details",
+        "repertoire": "../../component/djDetails/repertoire/repertoire",
+        "comments": "../../component/comm/comments/comments"
+    }
+}

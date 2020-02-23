@@ -24,7 +24,7 @@ const changeTime = value => {
     second = second < 10 ? ('0' + second) : second;
     // return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;//年月日时分秒
     // return y + '-' + m + '-' + d + ' ' + h + ':' + minute;
-    return y + '年' + m + '月' + d + ' 日';
+    return y + '年' + m + '月' + d + '日';
 
 }
 

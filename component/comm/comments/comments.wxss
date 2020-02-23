@@ -1,0 +1,39 @@
+@import "../../../app.wxss";
+.title {
+    font-weight: 550;
+    width: 90%;
+    margin: 20rpx auto;
+    margin-top: 60rpx;
+}
+
+.comment-item {
+    margin: 25rpx auto;
+}
+
+.img {
+    width: 65rpx;
+    border-radius: 50%;
+    margin-left: 5%;
+}
+
+.item-right {
+    padding: 10rpx 0 10rpx 10rpx;
+    border-bottom: 1px solid #ebedf0;
+    flex: 1;
+}
+
+.nickname {
+    font-size: 29rpx;
+    color: rgb(59, 59, 59);
+}
+
+.content {
+    font-size: 31rpx;
+    margin: 20rpx auto;
+}
+
+.time {
+    font-size: 26rpx;
+    color: rgb(100, 100, 100);
+    margin-bottom: 10rpx;
+}

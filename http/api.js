@@ -34,6 +34,11 @@ export default {
     getAlbum() {
         return service.get('/top/album?offset=0&limit=30')
     },
+    // 新碟详情
+
+    getAlbumDetails(id) {
+        return service.get(`/album?id=${id}`)
+    },
     // 推荐新歌
     getNewSong() {
         return service.get('/personalized/newsong')
@@ -45,6 +50,14 @@ export default {
     // 推荐电台
     getDjprogram() {
         return service.get('/personalized/djprogram')
+    },
+    // 电台 节目详情
+    getDjDetails(id) {
+        return service.get(`dj/program/detail?id=${id}`)
+    },
+    // 电台节目评论
+    getDjComment(id) {
+        return service.get(`/comment/dj?id=${id}&limit=20`)
     },
     // 推荐节目
     getProgram() {

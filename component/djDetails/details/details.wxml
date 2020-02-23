@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="top">
+    <view class="title">主播</view>
+    <view class="artists-item flex j-between a-center" wx:for="{{details.mainSong.artists}}" wx:key="index">
+      <view class="artists-left flex">
+        <image class="artists-img" src="{{item.picUrl}}" />
+        <view class="artists-details">
+          <view class="artists-name">{{item.name}}</view>
+          <view class="artists-type">网易音乐人</view>
+        </view>
+      </view>
+      <view class="artists-right">
+        <image class="artists-imgs" src="../../../assets/images/right.png" mode="widthFix" />
+      </view>
+    </view>
+    <view class="title">电台内容简介</view>
+    <view class="introduce">
+      <view class="introduce-class">
+        分类：{{details.channels}}
+        <text class="channels">{{details.radio.category}}</text>
+      </view>
+      <view class="introduce-state ellipsiss">{{details.description}}</view>
+    </view>
+  </view>
+</view>

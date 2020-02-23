@@ -9,7 +9,9 @@
         "pages/register/register",
         "pages/phoneLogin/phoneLogin",
         "pages/emailLogin/emailLogin",
-        "pages/singerDetails/singerDetails"
+        "pages/singerDetails/singerDetails",
+        "pages/albumDetails/albumDetails",
+        "pages/djDetails/djDetails"
     ],
     "window": {
         "backgroundTextStyle": "light",

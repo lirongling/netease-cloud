@@ -80,15 +80,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/login/login",
-					"pathName": "pages/login/login",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/edit/edit",
-					"pathName": "pages/edit/edit",
+					"name": "pages/djDetails/djDetails",
+					"pathName": "pages/djDetails/djDetails",
+					"query": "id=2065561916",
 					"scene": null
 				}
 			]

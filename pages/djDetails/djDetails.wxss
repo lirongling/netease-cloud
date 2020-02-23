@@ -1,0 +1,4 @@
+@import "../singerDetails/singerDetails.wxss";
+.content {
+    border-radius: 30rpx 30rpx 0 0!important;
+}

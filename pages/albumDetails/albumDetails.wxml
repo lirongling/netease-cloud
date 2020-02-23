@@ -1,25 +1,23 @@
 <wxs module="filter" src="../../assets/filter.wxs"></wxs>
 <view>
-  <view class="top" style="background-image:url({{playlist.backgroundCoverUrl}})">
+  <view class="top" style="background-image:url({{playlist.album.blurPicUrl}})">
     <nav></nav>
     <view class="content" style="padding-top:{{$.navTop*2+$.navHeight*2}}rpx;">
       <view class="content-introduce flex j-between">
         <view class="introduce-left">
-          <image class="introduce-img" mode="widthFix" src="{{playlist.coverImgUrl}}" />
-          <view class="play flex a-center">
-            <van-icon name="play-circle-o" class="paly-ico" />
-            {{filter.numberVonversion(playlist.playCount)}}
-          </view>
+          <image class="introduce-img" mode="widthFix" src="{{playlist.album.picUrl}}" />
         </view>
         <view class="introduce-right flex f-column j-between">
           <view>
-            <view class="introduce-name ellipsiss">{{playlist.name}}</view>
+            <view class="introduce-name ellipsiss">{{playlist.album.name}}</view>
             <view class="introduce-creator flex a-center">
-              <image class="creator-img" src="{{playlist.creator.avatarUrl}}" mode="widthFix" />
-              {{playlist.creator.nickname}}
+              <view class="flex a-center" wx:for="{{playlist.album.artists}}" wx:key="index">
+                <image class="creator-img" src="{{item.picUrl}}" mode="widthFix" />
+                {{item.name}}
+              </view>
             </view>
           </view>
-          <view class="introduce-description ellipsiss">{{playlist.description}}</view>
+          <view class="introduce-description ellipsiss">{{playlist.album.description}}</view>
         </view>
       </view>
       <view class="select flex j-around">
@@ -34,16 +32,16 @@
             <van-icon name="play-circle-o" class="paly-icos" />
             <view class="paly-all">
               播放全部
-              <text class="list-mount">(共{{playlist.trackCount}}首)</text>
+              <text class="list-mount">(共{{playlist.songs.length}}首)</text>
             </view>
           </view>
           <view class="list-right">
-            + 收藏（{{filter.numberVonversion(playlist.subscribedCount)}}）
+            + 收藏（{{filter.numberVonversion(playlist.album.info.likedCount)}}）
           </view>
         </view>
         <view class="content-song" id="contentsongs">
           <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
-            <song hotSongs="{{playlist.tracks}}"></song>
+            <song hotSongs="{{playlist.songs}}"></song>
           </scroll-view>
         </view>
       </view>

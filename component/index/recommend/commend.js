@@ -5,6 +5,10 @@ Component({
             type: Object,
             value: {},
         },
+        number: {
+            type: Number,
+            value: 1
+        }
 
     },
     data: {
@@ -23,10 +27,25 @@ Component({
         },
         goDetails(e) {
             let a = e.currentTarget.dataset.id
-            wx.navigateTo({
-                url: `/pages/details/details?id=${a}`,
 
-            });
+            let b = this.properties.number + this.data.select
+
+            // albumDetails
+            if (b == 1) {
+                wx.navigateTo({
+                    url: `/pages/details/details?id=${a}&number=${b}`,
+                });
+            } else if (b == 2) {
+                wx.navigateTo({
+                    url: `/pages/albumDetails/albumDetails?id=${a}&number=${b}`,
+                });
+            } else if (b == 5 || b == 6) {
+                wx.navigateTo({
+                    url: `/pages/djDetails/djDetails?id=${a}&number=${b}`,
+                });
+            }
+
+
         }
     },
     created: function() {
