@@ -1,1 +1,61 @@
-/* component/index/search/search.wxss */
+@import "../../../app.wxss";
+.container {
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    /* left: 50%; */
+    width: 100%;
+    background: white;
+    z-index: 9;
+}
+
+.top {
+    width: 90%;
+    margin: 0 auto;
+    height: 90rpx;
+    overflow: hidden;
+}
+
+.search-suggest {
+    position: absolute;
+    top: 100rpx;
+    left: 5%;
+    z-index: 20;
+    width: 600rpx;
+    background: white;
+    box-shadow: 2rpx 2rpx 10rpx #999;
+}
+
+.suggest-top {
+    color: teal!important;
+}
+
+.suggest-item {
+    padding: 20rpx 20rpx;
+    border-bottom: 1px solid #ebedf0;
+    color: rgb(141, 141, 141);
+}
+
+.suggest-search {
+    font-size: 38rpx;
+    margin-right: 10rpx;
+}
+
+.back {
+    transform: rotate(90deg);
+    font-size: 38rpx;
+}
+
+.input {
+    flex: 1;
+    margin: 0 10rpx;
+}
+
+.custom-class {
+    width: 300rpx !important;
+    height: 90rpx!important;
+}
+
+.songer {
+    font-size: 38rpx;
+}

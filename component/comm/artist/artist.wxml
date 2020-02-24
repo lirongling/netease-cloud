@@ -1,0 +1,18 @@
+<view class="item flex a-center">
+  <image class="img" src="{{artist.picUrl}}" />
+  <view class="item-details">
+    <view class="name flex a-center">
+      歌手：
+      <view class="names">{{artist.name}}</view>
+      <view class="flex a-center" wx:if="{{artist.alias[0]}}">
+        (
+        <view class="alias" wx:for="{{artist.alias}}" wx:key="index">{{item}}</view>
+        )
+      </view>
+    </view>
+    <view class="number flex a-center">
+      <view class="number-item">专辑:{{artist.albumSize}}</view>
+      <view class="number-item">MV:{{artist.mvSize}}</view>
+    </view>
+  </view>
+</view>

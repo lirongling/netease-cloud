@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "navTitle": "../../comm/navTitle/navTitle",
+        "artist": "../../comm/artist/artist",
+        "videoss": "../../comm/video/video"
+    }
+}

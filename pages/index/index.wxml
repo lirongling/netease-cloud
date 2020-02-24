@@ -13,6 +13,19 @@
     <recommend singData="{{newProgram}}" number="{{6}}"></recommend>
   </view>
   <van-popup show="{{showPop}}" position="bottom" custom-style="height: 100%;">
-    <search></search>
+    <search bind:show="onFocus" bind:search="search"></search>
+    <hotSearch wx:if="{{isSussgest}}" bind:search="search"></hotSearch>
+    <view class="search-content" wx:else>
+      <view class="tabs">
+        <van-tabs asticky>
+          <van-tab title="{{item.name}}" wx:for="{{tabArr}}" wx:key="index"></van-tab>
+        </van-tabs>
+      </view>
+      <view class="tab-content">
+        <view wx:if="{{type===1018}}">
+          <searchAll searchAll="{{searchAll}}"></searchAll>
+        </view>
+      </view>
+    </view>
   </van-popup>
 </view>

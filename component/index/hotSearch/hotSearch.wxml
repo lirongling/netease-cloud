@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="advice"></view>
+  <view class="content">
+    <view class="title">热搜榜</view>
+    <view class="content-item flex j-between a-center" wx:for="{{hotDetails}}" wx:key="index" data-keyword="{{item.searchWord}}" bind:tap="search">
+      <view class="item-left flex a-center ">
+        <view class="item-index flex a-center {{index<3? 'indexs' : ''}}">{{index+1}}</view>
+        <view class="item-details">
+          <view class="item-name flex a-center {{index<3? 'names' : ''}}">
+            {{item.searchWord}}
+            <image wx:if="{{item.iconUrl}}" class="item-img {{item.iconType===5? 'icons' : ''}}" src="{{item.iconUrl}}" mode="widthFix" />
+          </view>
+          <view class="item-content">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="item-right">{{item.score}}</view>
+    </view>
+  </view>
+</view>

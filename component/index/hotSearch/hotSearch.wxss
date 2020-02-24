@@ -1,0 +1,66 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 120rpx;
+}
+
+.advice {
+    margin: 40rpx auto;
+    border-radius: 20rpx;
+    height: 100rpx;
+    background: burlywood;
+}
+
+.title {
+    font-weight: 550;
+    margin: 20rpx auto;
+    margin-top: 60rpx;
+}
+
+.content-item {
+    margin: 30rpx auto;
+}
+
+.item-index {
+    font-size: 30rpx;
+    color: rgb(73, 73, 73);
+    margin: 0 10rpx;
+}
+
+.indexs {
+    color: coral!important;
+}
+
+.item-details {
+    margin-left: 10rpx;
+}
+
+.item-name {
+    font-size: 32rpx;
+}
+
+.names {
+    font-weight: 550;
+}
+
+.item-img {
+    margin-left: 10rpx;
+    width: 60rpx;
+}
+
+.icons {
+    width: 30rpx;
+}
+
+.item-content {
+    margin-top: 15rpx;
+    font-size: 26rpx;
+    color: rgb(119, 119, 119);
+}
+
+.item-right {
+    /* margin-top: -10rpx; */
+    font-size: 28rpx;
+    color: rgb(119, 119, 119);
+}

@@ -1,2 +1,22 @@
-<!--component/index/search/search.wxml-->
-<text>component/index/search/search.wxml</text>
+<view class="container">
+  <view class="top flex a-center j-between">
+    <view class="back flex a-center" bind:tap="back">
+      <van-icon name="down" />
+    </view>
+    <view class="input">
+      <van-search shape="round" bind:search="search" bind:focus="blur" bind:blur="blur" bind:change="change" custom-class="search" placeholder="{{keyword.showKeyword}}" value="{{ $.searchText }}" />
+    </view>
+    <view class="songer flex a-center">
+      <van-icon name="manager-o" />
+    </view>
+  </view>
+  <view class="search-suggest" wx:if="{{isSuggest&&($.searchText.length>0)}}">
+    <view class="suggest-item suggest-top flex a-center" bind:tap="search">搜索"{{$.searchText}}"</view>
+    <view class="suggest-item flex a-cente" wx:for="{{searchSuggest}}" wx:key="index" data-keyword="{{item.keyword}}" bind:tap="searchs">
+      <view class="suggest-search">
+        <van-icon name="search" />
+      </view>
+      {{item.keyword}}
+    </view>
+  </view>
+</view>

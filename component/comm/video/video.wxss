@@ -1,0 +1,47 @@
+@import "../../../app.wxss";
+.item {
+    margin: 25rpx auto;
+    width: 100%;
+}
+
+.item-left {
+    width: 160rpx;
+}
+
+.img {
+    width: 160rpx;
+    height: auto;
+    border-radius: 10rpx;
+}
+
+.item-details {
+    padding-left: 15rpx;
+}
+
+.item-name {
+    font-size: 30rpx;
+    height: auto;
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* .names {
+    color: rgb(46, 93, 141);
+} */
+
+.number {
+    margin-top: 12rpx;
+}
+
+.number-item {
+    margin-right: 20rpx;
+    font-size: 25rpx;
+    color: rgb(117, 117, 117);
+}
+
+.creator {
+    margin-right: 10rpx
+}

@@ -2,8 +2,9 @@
 import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
+import util from '../../utils/util'
 create.Page(store, {
-    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo'],
+    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo', 'searchWord'],
     data: {
         showPop: false,
         personalized: {
@@ -37,13 +38,39 @@ create.Page(store, {
             data: []
         },
         newAlbums: [],
-        newSong: []
+        newSong: [],
+        isSussgest: true,
+        tabArr: [
+            { name: '综合' },
+            { name: '单曲' },
+            { name: '专辑' },
+            { name: '歌手' },
+            { name: '歌单' },
+            { name: '用户' },
+            { name: 'MV' },
+            { name: '歌词' },
+            { name: '电台' },
+            { name: '视屏' },
+
+
+
+        ],
+        type: 1018,
+        offset: 0,
+        limit: 30,
+        searchAll: {}
+
+
     },
     onFocus(e) {
         this.setData({
-                showPop: !this.data.showPop
-            })
-            // this.setData({
+            isSussgest: !this.data.showPop,
+            showPop: !this.data.showPop,
+
+        })
+
+
+        // this.setData({
 
         // })
     },
@@ -208,6 +235,58 @@ create.Page(store, {
             this.store.data.userInfo = wx.getStorageSync('userInfo')
             console.log(this.store.data.userInfo);
         }
+    },
+    search(e) {
+        store.data.searchText = e.detail
+        this.setData({
+            isSussgest: false,
+        })
+        this.searchs(e.detail)
+    },
+    // 处理数据
+    dealTime(res) {
+        res.map(item => {
+            item.publishTime = util.changeTime(item.publishTime)
+        })
+    },
+    delDuration(res, n) {
+        res.map(item => {
+            item.durationms = util.changeDuration(item.durationms / n)
+        })
+    },
+    searchs(keywords) {
+        wx.showLoading({
+            title: '加载中',
+        });
+        api.search(keywords, this.data.type, this.data.offset, this.data.limit).then(res => {
+            wx.hideLoading();
+            if (res.code === 200) {
+                if (this.data.type === 1018) {
+                    this.dealTime(res.result.song.songs)
+                    this.dealTime(res.result.album.albums)
+                    this.delDuration(res.result.video.videos, 1000)
+                    this.setData({
+                        searchAll: res.result
+                    })
+                }
+                // for (let i in res.result) {
+                //     if (i !== 'code') {
+                //         res.result(i)
+                //     }
+                // }
+                // this.data.newProgram.data = res.programs
+                // this.setData({
+                //     newProgram: this.data.newProgram
+                // })
+                console.log(res);
+
+
+            }
+
+        }).catch(err => {
+            wx.hideLoading();
+            console.log(err);
+        })
     },
     //options(Object)
     onLoad: function(options) {

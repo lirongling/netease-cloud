@@ -1,0 +1,18 @@
+<view class="item flex a-center j-start">
+  <view class="item-left">
+    <image class="img" src="{{video.coverUrl}}" mode="widthFix" />
+  </view>
+  <view class="item-details">
+    <view class="item-name flex a-center">{{video.title}}</view>
+    <view class="number flex a-center">
+      <view class="number-item flex a-center">
+        <van-icon name="play-circle-o" class="details-ico" />
+        {{video.durationms}}
+      </view>
+      <view class="number-item flex a-center">
+        by—
+        <view class="creator" wx:for="{{video.creator}}" wx:key="index">{{item.userName}}</view>
+      </view>
+    </view>
+  </view>
+</view>

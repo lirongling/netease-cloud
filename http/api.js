@@ -121,6 +121,25 @@ export default {
     subcount() {
         return service.get(`/user/subcount`)
     },
+    // 热搜列表 详细
+    hotSearch() {
+        return service.get(`/search/hot/detail`)
+    },
+    // 默认搜索关键字
+
+    searchDefault() {
+        return service.get(`/search/default`)
+    },
+    // 搜索建议
+
+    searchSuggest(keywords) {
+        return service.get(`/search/suggest?keywords= ${keywords}&type=mobile`)
+    },
+    // 搜索
+
+    search(keywords, type, offset, limit) {
+        return service.get(`/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`)
+    },
     // 修改用户信息
     //     gender: 性别 0:保密 1:男性 2:女性
 

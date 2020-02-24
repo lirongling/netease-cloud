@@ -4,6 +4,7 @@ export default {
         navTop: null,
         navRight: null,
         windowHeight: null,
-        userInfo:{}
+        userInfo: {},
+        searchText: ''
     },
 }

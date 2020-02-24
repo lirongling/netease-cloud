@@ -5,7 +5,11 @@
         "recommended": "../../component/index/recommended/recommended",
         "recommend": "../../component/index/recommend/commend",
         "search": "../../component/index/search/search",
-        "van-popup": "../../lib/vant/popup/index"
+        "hotSearch": "../../component/index/hotSearch/hotSearch",
+        "searchAll": "../../component/search/searchAll/searchAll",
+        "van-popup": "../../lib/vant/popup/index",
+        "van-tab": "vant-weapp/tab",
+        "van-tabs": "vant-weapp/tabs"
 
     }
 }

@@ -27,6 +27,20 @@ const changeTime = value => {
     return y + '年' + m + '月' + d + '日';
 
 }
+const changeDuration = value => {
+    let a = value
+    var other = a % 3600;
+    var minute = Math.floor(other / 60);
+    var second = (other % 60).toFixed(0);
+    if (minute < 10) {
+        minute = `0${minute}`
+    }
+    if (second < 10) {
+        second = `0${second}`
+    }
+    value = `${minute}: ${second}`
+    return value
+}
 
 const formatNumber = n => {
     n = n.toString()
@@ -35,5 +49,6 @@ const formatNumber = n => {
 
 module.exports = {
     formatTime: formatTime,
-    changeTime: changeTime
+    changeTime: changeTime,
+    changeDuration: changeDuration,
 }

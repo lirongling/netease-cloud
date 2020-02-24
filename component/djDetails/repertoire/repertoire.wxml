@@ -15,7 +15,7 @@
   </view>
   <view class="item flex a-center j-between" wx:for="{{songs}}" wx:key="index">
     <view class="item-left flex a-center">
-      <view class="item-index">{{index}}</view>
+      <view class="item-index">{{index+1}}</view>
       <view class="item-details">
         <view class="item-name">{{item.name}}</view>
         <view class="details-bottom flex">
@@ -24,7 +24,8 @@
           </view>
           <view class="playedNum flex a-center">
             <van-icon name="play-circle-o" class="details-ico" />
-            {{filter.numberVonversion(item.playedNum)}}
+            <!-- {{filter.numberVonversion(item.listenerCount)}} -->
+            {{item.playedNum}}
           </view>
           <view class="duration flex a-center">
             <van-icon name="underway-o" details-ico />

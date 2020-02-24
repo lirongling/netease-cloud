@@ -47,9 +47,15 @@ Page({
                     let a = item.duration
                     var other = a % 3600;
                     var minute = Math.floor(other / 60);
-                    var second = (other % 60).toFixed(2);
-
-                    // item.playedNum = util.changeTime(item.playedNum)
+                    var second = (other % 60).toFixed(0);
+                    if (minute < 10) {
+                        minute = `0${minute}`
+                    }
+                    if (second < 10) {
+                        second = `0${second}`
+                    }
+                    item.duration = `${minute}: ${second}`
+                        // item.playedNum = util.changeTime(item.playedNum)
                 })
                 this.setData({
                     program: res.program,

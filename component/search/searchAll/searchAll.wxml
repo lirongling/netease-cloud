@@ -1,0 +1,8 @@
+<view class="container">
+  <!-- <navTitle title="单曲"></navTitle> -->
+  <view class="interest">
+    <view class="interest-title">你可能感兴趣</view>
+    <artist artist="{{searchAll.artist.artists[0]}}"></artist>
+    <videoss video="{{searchAll.video.videos[0]}}"></videoss>
+  </view>
+</view>
