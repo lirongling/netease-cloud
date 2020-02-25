@@ -1,50 +1,51 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/singer/singer",
-        "pages/my/my",
-        "pages/details/details",
-        "pages/login/login",
-        "pages/edit/edit",
-        "pages/register/register",
-        "pages/phoneLogin/phoneLogin",
-        "pages/emailLogin/emailLogin",
-        "pages/singerDetails/singerDetails",
-        "pages/albumDetails/albumDetails",
-        "pages/djDetails/djDetails"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#BE351C",
-        "navigationBarTitleText": "网易云音乐",
-        "navigationBarTextStyle": "white"
-    },
-    "tabBar": {
-        "color": "#a8a8a8",
-        "selectedColor": "#BE351C",
-        "backgroundColor": "#FAFAFA",
-        "borderStyle": "white",
-        "list": [{
-                "pagePath": "pages/index/index",
-                "iconPath": "/assets/images/home.png",
-                "selectedIconPath": "/assets/images/home-active.png",
-                "text": "网易云音乐"
-
-            },
-            {
-                "iconPath": "/assets/images/singer.png",
-                "selectedIconPath": "/assets/images/singer-active.png",
-                "text": "歌手",
-                "pagePath": "pages/singer/singer"
-            },
-            {
-                "iconPath": "/assets/images/my.png",
-                "selectedIconPath": "/assets/images/my-active.png",
-                "text": "我的",
-                "pagePath": "pages/my/my"
-            }
-        ]
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/singer/singer",
+    "pages/my/my",
+    "pages/details/details",
+    "pages/login/login",
+    "pages/edit/edit",
+    "pages/register/register",
+    "pages/phoneLogin/phoneLogin",
+    "pages/emailLogin/emailLogin",
+    "pages/singerDetails/singerDetails",
+    "pages/albumDetails/albumDetails",
+    "pages/djDetails/djDetails",
+    "component/comm/djRadios"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#BE351C",
+    "navigationBarTitleText": "网易云音乐",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#a8a8a8",
+    "selectedColor": "#BE351C",
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/assets/images/home.png",
+        "selectedIconPath": "/assets/images/home-active.png",
+        "text": "网易云音乐"
+      },
+      {
+        "iconPath": "/assets/images/singer.png",
+        "selectedIconPath": "/assets/images/singer-active.png",
+        "text": "歌手",
+        "pagePath": "pages/singer/singer"
+      },
+      {
+        "iconPath": "/assets/images/my.png",
+        "selectedIconPath": "/assets/images/my-active.png",
+        "text": "我的",
+        "pagePath": "pages/my/my"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }

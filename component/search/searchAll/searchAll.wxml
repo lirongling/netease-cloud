@@ -1,8 +1,59 @@
-<view class="container">
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="container" wx:if="{{searchAll.code}}">
   <!-- <navTitle title="单曲"></navTitle> -->
   <view class="interest">
     <view class="interest-title">你可能感兴趣</view>
-    <artist artist="{{searchAll.artist.artists[0]}}"></artist>
+    <artist artist="{{filter.sliceArrs(searchAll.artist.artists,1)}}"></artist>
     <videoss video="{{searchAll.video.videos[0]}}"></videoss>
+    <view class="nav-title navs flex j-between a-center">
+      <view class="title-name">单曲</view>
+      <view class="play flex a-center">
+        <van-icon name="play-circle-o" class="paly-ico" />
+        播放全部
+      </view>
+    </view>
+    <song hotSongs="{{filter.sliceArrs(searchAll.song.songs,5)}}"></song>
+    <view class="more flex a-center j-center">
+      <rich-text nodes="{{searchAll.song.moreText}}"></rich-text>
+      <image class="more-ico" src="../../../assets/images/right.png" mode="widthFix" />
+    </view>
+    <view class="nav-title flex j-between a-center">
+      <view class="title-name">歌单</view>
+    </view>
+    <playlist playlist="{{filter.sliceArrs(searchAll.playList.playLists,5)}}"></playlist>
+    <view class="more flex a-center j-center">
+      <rich-text nodes="{{searchAll.playList.moreText}}"></rich-text>
+      <image class="more-ico" src="../../../assets/images/right.png" mode="widthFix" />
+    </view>
+    <view class="nav-title flex j-between a-center">
+      <view class="title-name">视屏</view>
+    </view>
+    <view wx:for="{{filter.sliceArrs(searchAll.video.videos,5)}}" wx:key="index">
+      <videoss video="{{item}}"></videoss>
+    </view>
+    <view class="more flex a-center j-center">
+      <rich-text nodes="{{searchAll.video.moreText}}"></rich-text>
+      <image class="more-ico" src="../../../assets/images/right.png" mode="widthFix" />
+    </view>
+    <view class="nav-title flex j-between a-center">
+      <view class="title-name">专辑</view>
+    </view>
+    <album hotAlbums="{{filter.sliceArrs(searchAll.album.albums,5)}}"></album>
+    <view class="more flex a-center j-center">
+      <rich-text nodes="{{searchAll.album.moreText}}"></rich-text>
+      <image class="more-ico" src="../../../assets/images/right.png" mode="widthFix" />
+    </view>
+    <view class="nav-title flex j-between a-center">
+      <view class="title-name">相关搜索</view>
+    </view>
+    <simquerys simquerys="{{searchAll.sim_query.sim_querys}}" bind:keyword="keyword"></simquerys>
+    <view class="nav-title flex j-between a-center">
+      <view class="title-name">电台</view>
+    </view>
+    <djRadios djRadios="{{filter.sliceArrs(searchAll.djRadio.djRadios,1)}}"></djRadios>
+    <view class="more flex a-center j-center">
+      <rich-text nodes="{{searchAll.djRadio.moreText}}"></rich-text>
+      <image class="more-ico" src="../../../assets/images/right.png" mode="widthFix" />
+    </view>
   </view>
 </view>

@@ -1,0 +1,19 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="item flex a-center j-start" wx:for="{{djRadios}}" wx:key="index">
+  <view class="item-left">
+    <image class="img" src="{{item.picUrl}}" mode="widthFix" />
+  </view>
+  <view class="item-details">
+    <view class="item-name">
+      <rich-text nodes="{{item.name}}"></rich-text>
+    </view>
+    <view class="item-desc">
+      <rich-text nodes="{{item.desc}}"></rich-text>
+    </view>
+    <view class="number flex a-center">
+      <view class="number-item flex a-center" style="border:2rpx solid {{filter.color()}}">
+        <rich-text nodes=" {{item.category}}"></rich-text>
+      </view>
+    </view>
+  </view>
+</view>

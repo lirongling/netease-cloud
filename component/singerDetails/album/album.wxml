@@ -4,7 +4,9 @@
       <image class="img" src="{{item.picUrl}}" mode="widthFix" />
     </view>
     <view class="item-right">
-      <view class="name">{{item.name}}</view>
+      <view class="name">
+        <rich-text nodes="{{item.name}}"></rich-text>
+      </view>
       <view class="time">发行时间：{{item.publishTime}}</view>
     </view>
   </view>

@@ -1,6 +1,6 @@
 @import "../../../app.wxss";
 .container {
-    width: 90%;
+    width: 90vw;
     margin: 0 auto;
 }
 

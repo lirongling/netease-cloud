@@ -1,11 +1,13 @@
 @import "../../../app.wxss";
 .container {
-    width: 90%;
+    /* width: 90%; */
+    width: 90vw;
     margin: 0 auto;
 }
 
 .item {
-    margin: 30rpx auto;
+    margin: 36rpx auto;
+    width: 100%;
 }
 
 .item-left {}
@@ -16,21 +18,44 @@
 }
 
 .item-details {
-    margin-left: 20rpx;
+    padding-left: 20rpx;
+    flex: 1;
+    min-width: 0;
 }
 
 .name {
     font-size: 32rpx;
+    width: 100%;
+    display: -webkit-box;
+    /*作为弹性伸缩盒子模型显示*/
+    -webkit-line-clamp: 1;
+    /*显示的行数；如果要设置2行加...则设置为2*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 溢出用省略号*/
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /*伸缩盒子的子元素排列：从上到下*/
 }
 
 .alia {
-    margin-top: 10rpx;
+    margin-top: 8rpx;
     font-size: 27rpx;
     color: rgb(127, 128, 128);
 }
 
 .al {
-    width: 300rpx;
+    width: 100%;
+    display: -webkit-box;
+    /*作为弹性伸缩盒子模型显示*/
+    -webkit-line-clamp: 1;
+    /*显示的行数；如果要设置2行加...则设置为2*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 溢出用省略号*/
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /*伸缩盒子的子元素排列：从上到下*/
 }
 
 .item-right {
@@ -44,4 +69,9 @@
 
 .more-img {
     width: 40rpx;
+}
+
+.ablum {
+    max-width: 300rpx;
+    -webkit-line-clamp: 1;
 }

@@ -3,12 +3,27 @@
     <view class="item-left flex  a-center ">
       <view class="item-index">{{index+1}}</view>
       <view class="item-details">
-        <view class="name">{{item.name}}</view>
+        <view class="name ">
+          <rich-text nodes="{{item.name}}"></rich-text>
+        </view>
         <view class="alia  flex a-center">
           <text class="flex a-center" wx:for="{{item.ar}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
-            <text>{{items.name}}-</text>
+            <text>
+              <rich-text nodes="{{item.name}}"></rich-text>
+            </text>
           </text>
-          <view class="al ellipsis flex a-center">{{item.al.name}}</view>
+          <view class="al  flex a-center">
+            <rich-text nodes="{{item.al.name}}"></rich-text>
+          </view>
+        </view>
+        <view class="alia  flex a-center" wx:if="{{item.artists}}">
+          <view class="ablum ellipsiss">
+            <rich-text nodes="{{item.artists[0].name}}"></rich-text>
+          </view>
+          -
+          <view class="ablum ellipsiss">
+            <rich-text nodes="{{item.album.name}}"></rich-text>
+          </view>
         </view>
       </view>
     </view>

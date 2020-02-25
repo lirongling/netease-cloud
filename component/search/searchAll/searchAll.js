@@ -12,7 +12,11 @@ Component({
 
     },
     methods: {
+        keyword(e) {
+            let a = e.detail
+            this.triggerEvent('keyword', a)
 
+        }
     },
     created: function() {
 

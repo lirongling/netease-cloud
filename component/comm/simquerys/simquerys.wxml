@@ -1,0 +1,5 @@
+<view class="container flex a-center f-wrap">
+  <view class="item" wx:for="{{simquerys}}" wx:key="index" data-keyword="{{item.keyword}}" bind:tap="clickItem">
+    {{item.keyword}}
+  </view>
+</view>

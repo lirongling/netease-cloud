@@ -3,6 +3,12 @@
     "usingComponents": {
         "navTitle": "../../comm/navTitle/navTitle",
         "artist": "../../comm/artist/artist",
-        "videoss": "../../comm/video/video"
+        "videoss": "../../comm/video/video",
+        "van-icon": "vant-weapp/icon",
+        "song": "../../singerDetails/song/song",
+        "album": "../../singerDetails/album/album",
+        "playlist": "../../comm/playlist/playlist",
+        "simquerys": "../../comm/simquerys/simquerys",
+        "djRadios": "../../comm/djRadios/djRadios"
     }
 }

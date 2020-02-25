@@ -1,0 +1,23 @@
+@import "../../../app.wxss";
+.container {
+    width: 90%;
+    margin: 30rpx auto;
+}
+
+.left {
+    font-size: 34rpx;
+}
+
+.play-ico {
+    margin-right: 20rpx;
+    margin-top: 5rpx;
+    font-size: 38rpx;
+}
+
+.right {
+    font-size: 28rpx;
+}
+
+.bars {
+    font-size: 30rpx;
+}

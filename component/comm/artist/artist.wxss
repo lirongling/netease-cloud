@@ -1,5 +1,6 @@
 @import "../../../app.wxss";
 .item {
+    width: 90vw;
     margin: 25rpx auto;
 }
 
@@ -10,10 +11,13 @@
 
 .item-details {
     margin-left: 15rpx;
+    width: 580rpx;
 }
 
 .name {
     font-size: 30rpx;
+    width: 100%;
+    autoprefixer: on
 }
 
 .names {

@@ -9,7 +9,13 @@
         "searchAll": "../../component/search/searchAll/searchAll",
         "van-popup": "../../lib/vant/popup/index",
         "van-tab": "vant-weapp/tab",
-        "van-tabs": "vant-weapp/tabs"
+        "van-tabs": "vant-weapp/tabs",
+        "song": "../../component/singerDetails/song/song",
+        "playSongs": "../../component/index/playSongs/playSongs",
+        "album": "../../../component/singerDetails/album/album",
+        "artist": "../../component/comm/artist/artist",
+        "playlist": "../../component/comm/playlist/playlist",
+        "userprofiles": "../../component/comm/userprofiles/userprofiles"
 
     }
 }

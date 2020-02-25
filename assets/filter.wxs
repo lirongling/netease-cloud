@@ -25,6 +25,10 @@ var filter = {
             var rag = 'rgb(' + rgb1 + ',' + rgb2 + ',' + rgb3 + ')';
             return rag
         },
+        sliceArrs: function(arr, a) {
+            var b = arr.slice(0, a)
+            return b
+        },
 
 
         // /**
@@ -46,5 +50,6 @@ module.exports = {
     numberToFixed: filter.numberToFixed,
     numberVonversion: filter.numberVonversion,
     color: filter.color,
+    sliceArrs: filter.sliceArrs,
 
 }

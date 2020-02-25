@@ -1,0 +1,14 @@
+<view class="container flex j-between a-center">
+  <view class="left flex a-center">
+    <view class="flex a-center">
+      <van-icon name="play-circle-o" class="play-ico" />
+    </view>
+    <view class="flex a-center">播放全部</view>
+  </view>
+  <view class="right flex a-center">
+    <view class="flex a-center">
+      <van-icon name="bars" class="bars" />
+    </view>
+    <view>多选</view>
+  </view>
+</view>

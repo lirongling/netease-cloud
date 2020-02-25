@@ -1,31 +1,52 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="top" wx:if="{{!showPop}}">
-    <indexTop bind:onfocus="onFocus"></indexTop>
+  <view wx:if="{{!showPop}}">
+    <view class="top">
+      <indexTop bind:onfocus="onFocus"></indexTop>
+    </view>
+    <view class="content">
+      <banner></banner>
+      <recommended></recommended>
+      <recommend singData="{{personalized}}" number="{{1}}"></recommend>
+      <recommend singData="{{albums}}" number="{{2}}" bind:selects="select"></recommend>
+      <recommend singData="{{newMv}}" number="{{4}}"></recommend>
+      <recommend singData="{{newDjprogram}}" number="{{5}}"></recommend>
+      <recommend singData="{{newProgram}}" number="{{6}}"></recommend>
+    </view>
   </view>
-  <view class="content">
-    <banner></banner>
-    <recommended></recommended>
-    <recommend singData="{{personalized}}" number="{{1}}"></recommend>
-    <recommend singData="{{albums}}" number="{{2}}" bind:selects="select"></recommend>
-    <recommend singData="{{newMv}}" number="{{4}}"></recommend>
-    <recommend singData="{{newDjprogram}}" number="{{5}}"></recommend>
-    <recommend singData="{{newProgram}}" number="{{6}}"></recommend>
-  </view>
-  <van-popup show="{{showPop}}" position="bottom" custom-style="height: 100%;">
+  <view wx:else>
     <search bind:show="onFocus" bind:search="search"></search>
     <hotSearch wx:if="{{isSussgest}}" bind:search="search"></hotSearch>
     <view class="search-content" wx:else>
       <view class="tabs">
-        <van-tabs asticky>
+        <van-tabs swipeable asticky active="{{ active }}" bind:change="changeTabs">
           <van-tab title="{{item.name}}" wx:for="{{tabArr}}" wx:key="index"></van-tab>
         </van-tabs>
       </view>
-      <view class="tab-content">
-        <view wx:if="{{type===1018}}">
-          <searchAll searchAll="{{searchAll}}"></searchAll>
-        </view>
+      <view class="tab-content" id="contentsongs">
+        <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
+          <view wx:if="{{active===0}}">
+            <searchAll searchAll="{{searchAll}}" bind:keyword="search"></searchAll>
+          </view>
+          <view wx:elif="{{active===1}}">
+            <playSongs hotSongs="{{searchAll.songs}}"></playSongs>
+            <song hotSongs="{{searchAll.songs}}"></song>
+            <!-- <searchAll searchAll="{{searchAll}}" bind:keyword="search"></searchAll> -->
+          </view>
+          <view wx:elif="{{active===2}}">
+            <album hotAlbums="{{searchAll.albums}}"></album>
+          </view>
+          <view wx:elif="{{active===3}}">
+            <artist artist="{{searchAll.artists}}"></artist>
+          </view>
+          <view wx:elif="{{active===4}}">
+            <playlist playlist="{{searchAll.playlists}}"></playlist>
+          </view>
+          <view wx:elif="{{active===5}}">
+            <userprofiles userprofiles="{{searchAll.userprofiles}}"></userprofiles>
+          </view>
+        </scroll-view>
       </view>
     </view>
-  </van-popup>
+  </view>
 </view>

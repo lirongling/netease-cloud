@@ -1,17 +1,26 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
 <view class="item flex a-center j-start">
   <view class="item-left">
     <image class="img" src="{{video.coverUrl}}" mode="widthFix" />
+    <view class="play flex a-center">
+      <van-icon name="play-circle-o" class="paly-ico" />
+      {{filter.numberVonversion(video.playTime)}}
+    </view>
   </view>
   <view class="item-details">
-    <view class="item-name flex a-center">{{video.title}}</view>
+    <view class="item-name">
+      <rich-text nodes="{{video.title}}"></rich-text>
+    </view>
     <view class="number flex a-center">
       <view class="number-item flex a-center">
-        <van-icon name="play-circle-o" class="details-ico" />
+        <van-icon name="clock-o" class="details-ico" />
         {{video.durationms}}
       </view>
-      <view class="number-item flex a-center">
-        by—
-        <view class="creator" wx:for="{{video.creator}}" wx:key="index">{{item.userName}}</view>
+      <view class="number-items flex a-center ">
+        <view>by:</view>
+        <view class="creator ellipsiss">
+          <rich-text nodes=" {{video.creator[0].userName}}"></rich-text>
+        </view>
       </view>
     </view>
   </view>

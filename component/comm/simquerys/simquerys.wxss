@@ -1,0 +1,14 @@
+@import "../../../app.wxss";
+.container {
+    margin: 20rpx auto;
+    width: 100%;
+}
+
+.item {
+    padding: 8rpx 20rpx;
+    background: rgba(234, 238, 238, .8);
+    border-radius: 20rpx;
+    font-size: 30rpx;
+    margin: 12rpx;
+    color: rgb(26, 25, 25);
+}

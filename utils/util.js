@@ -46,9 +46,16 @@ const formatNumber = n => {
     n = n.toString()
     return n[1] ? n : '0' + n
 }
+const keyWord = (str, value) => {
+    const replaceReg = new RegExp(value, 'g');
+    const replaceString = `<span style='color:red'>${value}</span>`
+    str = str.replace(replaceReg, replaceString);
+    return str
+}
 
 module.exports = {
     formatTime: formatTime,
     changeTime: changeTime,
     changeDuration: changeDuration,
+    keyWord: keyWord,
 }

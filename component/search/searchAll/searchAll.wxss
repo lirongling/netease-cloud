@@ -14,3 +14,38 @@
     font-size: 28rpx;
     margin: 10rpx auto;
 }
+
+.nav-title {
+    margin-top: 35rpx auto;
+}
+
+.navs {
+    margin-top: 50rpx;
+}
+
+.title-name {
+    font-size: 33rpx;
+    font-weight: 550;
+}
+
+.play {
+    padding: 5rpx 15rpx;
+    font-size: 26rpx;
+    border: rgb(190, 190, 190) 2rpx solid;
+    border-radius: 20rpx;
+}
+
+.paly-ico {
+    margin-right: 10rpx;
+    font-size: 28rpx;
+}
+
+.more {
+    font-size: 28rpx;
+    color: rgb(147, 147, 148);
+    margin: 20rpx;
+}
+
+.more-ico {
+    width: 36rpx;
+}

@@ -2,8 +2,8 @@
 Component({
     properties: {
         artist: {
-            type: Object,
-            value: {},
+            type: Array,
+            value: [],
         },
 
     },

@@ -1,0 +1,14 @@
+@import "../../../app.wxss";
+.container {
+    margin: 25rpx auto;
+    width: 90vw;
+}
+
+.item {
+    margin: 30rpx auto;
+}
+
+.item-img {
+    width: 90rpx;
+    border-radius: 50%;
+}

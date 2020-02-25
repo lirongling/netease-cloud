@@ -20,11 +20,11 @@
     position: fixed;
     top: 90rpx;
     width: 100%;
+    z-index: 9;
 }
 
 .tab-content {
     width: 100%;
-    height: 1000px;
     margin-top: 194rpx;
-    background: yellow;
+    /* background: yellow; */
 }

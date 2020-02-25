@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="item flex a-center j-between" wx:for="{{userprofiles}}" wx:key="index">
+    <view class="item-left">
+      <image class="item-img" src="{{item.avatarUrl}}" mode="widthFix" />
+    </view>
+    <view class="item-right"></view>
+  </view>
+</view>

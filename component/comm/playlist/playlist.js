@@ -1,9 +1,9 @@
 //Component Object
 Component({
     properties: {
-        video: {
-            type: Object,
-            value: {},
+        playlist: {
+            type: Array,
+            value: [],
         },
 
     },
@@ -19,7 +19,9 @@ Component({
     attached: function() {
 
     },
-    ready: function() {},
+    ready: function() {
+
+    },
     moved: function() {
 
     },

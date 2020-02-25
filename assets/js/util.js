@@ -122,7 +122,7 @@ const debounce = (fn, dalay) => {
  */
 const keyWord = (str, value) => {
     const replaceReg = new RegExp(value, 'g');
-    const replaceString = `<span style='color:red'>${value}</span>`
+    const replaceString = `<text style='color:red'>${value}</text>`
     str = str.replace(replaceReg, replaceString);
     return str
 }

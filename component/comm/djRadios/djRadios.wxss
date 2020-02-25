@@ -5,7 +5,7 @@
 }
 
 .item-left {
-    width: 200rpx;
+    width: 160rpx;
     position: relative;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .img {
-    width: 200rpx;
+    width: 160rpx;
     height: auto;
     border-radius: 10rpx;
 }
@@ -35,6 +35,12 @@
 .item-name {
     font-size: 29rpx;
     height: auto;
+}
+
+.item-desc {
+    margin-top: 12rpx;
+    color: rgb(83, 83, 83);
+    font-size: 26rpx;
 }
 
 
@@ -50,6 +56,8 @@
     margin-right: 20rpx;
     font-size: 25rpx;
     color: rgb(117, 117, 117);
+    padding: 5rpx 15rpx;
+    border-radius: 15rpx;
 }
 
 .number-items {

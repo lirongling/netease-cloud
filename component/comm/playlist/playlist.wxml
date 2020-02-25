@@ -1,0 +1,31 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="item flex a-center j-start" wx:for="{{playlist}}" wx:key="index">
+  <view class="item-left">
+    <image class="img" src="{{item.coverImgUrl}}" mode="widthFix" />
+    <!-- <view class="play flex a-center">
+      <van-icon name="play-circle-o" class="paly-ico" />
+      {{filter.numberVonversion(video.playTime)}}
+    </view> -->
+  </view>
+  <view class="item-details">
+    <view class="item-name ellipsiss">
+      <rich-text nodes="{{item.name}}"></rich-text>
+    </view>
+    <view class="description ellipsiss">
+      <rich-text nodes="{{item.description}}"></rich-text>
+    </view>
+    <view class="number flex a-center">
+      <view class="number-item flex a-center">{{item.trackCount}}首</view>
+      <view class="number-item  flex a-center">
+        <view>by:</view>
+        <view class="creator ellipsiss">
+          <rich-text nodes=" {{item.creator.nickname}}"></rich-text>
+        </view>
+      </view>
+      <view class="number-item flex a-center">
+        <van-icon name="play-circle-o" />
+        {{filter.numberVonversion(item.playCount)}}
+      </view>
+    </view>
+  </view>
+</view>
