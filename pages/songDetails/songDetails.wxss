@@ -1,0 +1,47 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.bg {
+    float: left;
+    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center top;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+.navs {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-70%);
+    width: 100%;
+    z-index: 999;
+}
+
+.center-img {
+    width: 50vw;
+    border-radius: 50%;
+}
+
+.content {
+    position: absolute;
+    width: 90%;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
