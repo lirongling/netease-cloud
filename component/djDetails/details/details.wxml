@@ -1,7 +1,7 @@
 <view class="container">
   <view class="top">
     <view class="title">主播</view>
-    <view class="artists-item flex j-between a-center" wx:for="{{details.mainSong.artists}}" wx:key="index">
+    <view wx:if="{{details.mainSong.artists}}" class="artists-item flex j-between a-center" wx:for="{{details.mainSong.artists}}" wx:key="index">
       <view class="artists-left flex">
         <image class="artists-img" src="{{item.picUrl}}" />
         <view class="artists-details">
@@ -13,13 +13,32 @@
         <image class="artists-imgs" src="../../../assets/images/right.png" mode="widthFix" />
       </view>
     </view>
+    <view class="artists-item flex j-between a-center">
+      <view class="artists-left flex">
+        <image class="artists-img" src="{{details.dj.avatarUrl}}" />
+        <view class="artists-details">
+          <view class="artists-name">{{details.dj.nickname}}</view>
+          <view class="artists-type">网易音乐人</view>
+        </view>
+      </view>
+      <view class="artists-right">
+        <image class="artists-imgs" src="../../../assets/images/right.png" mode="widthFix" />
+      </view>
+    </view>
     <view class="title">电台内容简介</view>
     <view class="introduce">
-      <view class="introduce-class">
+      <view class="introduce-class" wx:if="{{details.channels}}">
         分类：{{details.channels}}
         <text class="channels">{{details.radio.category}}</text>
       </view>
-      <view class="introduce-state ellipsiss">{{details.description}}</view>
+      <view class="introduce-class" wx:else>
+        分类：{{details.channels}}
+        <text class="channels">{{details.category}}</text>
+      </view>
+      <view wx:if="{{details.description}}" class="introduce-state ellipsiss">
+        {{details.description}}
+      </view>
+      <view wx:else class="introduce-state ellipsiss">{{details.desc}}</view>
     </view>
   </view>
 </view>

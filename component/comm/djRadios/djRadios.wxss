@@ -35,12 +35,14 @@
 .item-name {
     font-size: 29rpx;
     height: auto;
+    -webkit-line-clamp: 2;
 }
 
 .item-desc {
     margin-top: 12rpx;
     color: rgb(83, 83, 83);
     font-size: 26rpx;
+    -webkit-line-clamp: 1;
 }
 
 

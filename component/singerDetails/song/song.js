@@ -1,5 +1,8 @@
 import api from "../../../http/api";
-Component({
+import create from '../../../utils/store/create'
+import store from '../../../store/index'
+create.Component(store, {
+    use: ['songsList'],
     properties: {
         hotSongs: {
             type: Array,
@@ -13,8 +16,8 @@ Component({
     },
     methods: {
         playMusic(e) {
-            let a = e.currentTarget.dataset.id
-            this.getIsPlay(a)
+            let id = e.currentTarget.dataset.id
+            this.getIsPlay(id)
         },
         getIsPlay(id) {
             wx.showLoading({
@@ -37,6 +40,14 @@ Component({
                 wx.hideLoading();
                 console.log(err);
             })
+        },
+        goSong(e) {
+            let id = e.currentTarget.dataset.id
+            console.log(e.currentTarget.dataset.item);
+            this.store.data.songsList.unshift(e.currentTarget.dataset.item)
+            wx.navigateTo({
+                url: `/pages/songDetails/songDetails?id=${id}`,
+            });
         }
     },
     created: function() {

@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="item flex j-between a-center" wx:for="{{hotSongs}}" wx:key="index">
+  <view class="item flex j-between a-center" wx:for="{{hotSongs}}" wx:key="index" data-item="{{item}}" data-id="{{item.id}}" bind:tap="goSong">
     <view class="item-left flex  a-center ">
       <view class="item-index">{{index+1}}</view>
       <view class="item-details">

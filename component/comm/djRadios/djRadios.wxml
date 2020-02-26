@@ -1,13 +1,13 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
-<view class="item flex a-center j-start" wx:for="{{djRadios}}" wx:key="index">
+<view class="item flex a-center j-start" wx:for="{{djRadios}}" wx:key="index" bind:tap="goDetails" data-id="{{item.id}}">
   <view class="item-left">
     <image class="img" src="{{item.picUrl}}" mode="widthFix" />
   </view>
   <view class="item-details">
-    <view class="item-name">
+    <view class="item-name ellipsiss">
       <rich-text nodes="{{item.name}}"></rich-text>
     </view>
-    <view class="item-desc">
+    <view class="item-desc ellipsiss">
       <rich-text nodes="{{item.desc}}"></rich-text>
     </view>
     <view class="number flex a-center">

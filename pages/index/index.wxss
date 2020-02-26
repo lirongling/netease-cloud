@@ -20,7 +20,7 @@
     position: fixed;
     top: 90rpx;
     width: 100%;
-    z-index: 9;
+    z-index: 3;
 }
 
 .tab-content {

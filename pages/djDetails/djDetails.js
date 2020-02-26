@@ -31,40 +31,56 @@ Page({
 
     },
     // 获取新碟详情
-    getDjDetails(id) {
+    getDjDetails(id, n) {
+
         wx.showLoading({
             title: '加载中',
         });
-        api.getDjDetails(id).then(res => {
+        api.getDjDetails(id, n).then(res => {
             wx.hideLoading();
-            if (res.code === 200) {
-                if (res.program.songs.length === 0) {
-                    this.data.songs.push(res.program.mainSong)
-                } else {
-                    this.data.songs = res.program.songs
+            if (n != 1) {
+                if (res.program.songs) {
+
+
+                    if (res.program.songs.length === 0) {
+                        this.data.songs.push(res.program.mainSong)
+                    } else {
+                        this.data.songs = res.program.songs
+                    }
+                    this.data.songs.map(item => {
+                        let a = item.duration
+                        var other = a % 3600;
+                        var minute = Math.floor(other / 60);
+                        var second = (other % 60).toFixed(0);
+                        if (minute < 10) {
+                            minute = `0${minute}`
+                        }
+                        if (second < 10) {
+                            second = `0${second}`
+                        }
+                        item.duration = `${minute}: ${second}`
+                            // item.playedNum = util.changeTime(item.playedNum)
+                    })
                 }
-                this.data.songs.map(item => {
-                    let a = item.duration
-                    var other = a % 3600;
-                    var minute = Math.floor(other / 60);
-                    var second = (other % 60).toFixed(0);
-                    if (minute < 10) {
-                        minute = `0${minute}`
-                    }
-                    if (second < 10) {
-                        second = `0${second}`
-                    }
-                    item.duration = `${minute}: ${second}`
-                        // item.playedNum = util.changeTime(item.playedNum)
-                })
                 this.setData({
-                    program: res.program,
-                    songs: this.data.songs
+                    program: this.data.songs ? res.program　 : res.djRadio,
+                    songs: this.data.songs ? this.data.songs　 : []
                 })
-                setTimeout(() => {
-                    this.getHeight()
-                }, 1000)
+            } else {
+                this.setData({
+                    program: res.djRadio,
+                    songs: []
+                })
             }
+            // console.log(res.program !== 'undefined');
+            // console.log(res.djRadio);
+
+
+            setTimeout(() => {
+                this.getHeight()
+            }, 1000)
+            console.log(this.data.program);
+
         }).catch(err => {
             wx.hideLoading();
             console.log(err);
@@ -96,7 +112,9 @@ Page({
      */
     onLoad: function(options) {
 
-        this.getDjDetails(options.id)
+        this.getDjDetails(options.id, options.number)
+
+
         this.getDjComment(options.id)
         this.setData({
             id: options.id,

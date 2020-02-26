@@ -121,7 +121,8 @@ Page({
                 cat: b,
                 initial: '',
                 offset: 0,
-                artistsList: []
+                artistsList: [],
+                indexItems:0,
             })
             this.getArtistList()
         }

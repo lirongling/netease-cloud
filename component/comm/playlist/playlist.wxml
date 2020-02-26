@@ -1,5 +1,5 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
-<view class="item flex a-center j-start" wx:for="{{playlist}}" wx:key="index">
+<view class="item flex a-center j-start" wx:for="{{playlist}}" wx:key="index" bind:tap="goDetails" data-id="{{item.id}}">
   <view class="item-left">
     <image class="img" src="{{item.coverImgUrl}}" mode="widthFix" />
     <!-- <view class="play flex a-center">

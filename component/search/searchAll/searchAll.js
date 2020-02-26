@@ -16,6 +16,11 @@ Component({
             let a = e.detail
             this.triggerEvent('keyword', a)
 
+        },
+        changeActive(e){
+          
+             let a = e.currentTarget.dataset.index
+            this.triggerEvent('active', a)
         }
     },
     created: function() {

@@ -5,6 +5,7 @@ export default {
         navRight: null,
         windowHeight: null,
         userInfo: {},
-        searchText: ''
+        searchText: '',
+        songsList: []
     },
 }

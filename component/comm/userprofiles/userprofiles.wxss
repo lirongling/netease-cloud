@@ -12,3 +12,39 @@
     width: 90rpx;
     border-radius: 50%;
 }
+
+.item-details {
+    margin-left: 15rpx;
+}
+
+.item-name {
+    font-size: 28rpx;
+    -webkit-line-clamp: 1;
+    max-width: 400rpx;
+}
+
+.item-gender {
+    /* margin-top: 10rpx; */
+    width: 35rpx;
+}
+
+.item-signature {
+    margin-top: 10rpx;
+    font-size: 25rpx;
+    color: rgb(95, 95, 95);
+    -webkit-line-clamp: 1;
+    max-width: 420rpx;
+}
+
+.item-right {
+    padding: 0 15rpx;
+    color: rgb(216, 70, 51);
+    border: 2rpx rgb(216, 70, 51) solid;
+    border-radius: 20rpx;
+    font-size: 26rpx;
+}
+
+.add {
+    font-size: 32rpx;
+    margin-right: 8rpx;
+}

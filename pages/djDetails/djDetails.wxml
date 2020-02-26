@@ -1,10 +1,14 @@
 <wxs module="filter" src="../../assets/filter.wxs"></wxs>
 <view class="container">
-  <view class="top" style="background-image:url({{program.coverUrl}})"></view>
+  <view class="top" style="background-image:url({{program.coverUrl}})" wx:if="{{program.coverUrl}}"></view>
+  <view class="top" style="background-image:url({{program.picUrl}})" wx:else></view>
   <view class="title flex j-between">
     <view class="title-left">
       <view class="name">{{program.name}}</view>
-      <view class="fans">{{filter.numberVonversion(program.listenerCount)}}人已订阅</view>
+      <view wx:if="{{program.listenerCount}}" class="fans">
+        {{filter.numberVonversion(program.listenerCount)}}人已订阅
+      </view>
+      <view wx:else class="fans">{{filter.numberVonversion(program.programCount)}}人已订阅</view>
     </view>
     <view class="title-right  title-rightsssss flex j-center a-center">
       <van-icon name="plus" />
@@ -15,8 +19,9 @@
     <van-tabs sticky="true">
       <van-tab title="详情">
         <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight-44}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
-          <details details="{{program}}" comments="{{comments}}"></details>
-          <comments comments="{{comments}}"></comments>
+          <details details="{{program}}"></details>
+          <comments comments="{{comments}}" wx:if="{{comments.length>0}}"></comments>
+          <comments comments="{{program.commentDatas}}" wx:else></comments>
         </scroll-view>
       </van-tab>
       <van-tab title="节目{{songs.length}}">

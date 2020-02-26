@@ -16,7 +16,13 @@ Component({
 
     },
     methods: {
-
+goDetails(e){
+ let a = e.currentTarget.dataset.id
+  wx.navigateTo({
+                      url: `/pages/albumDetails/albumDetails?id=${a}&number=${2}`,
+                });
+}
+   
     },
     created: function() {
 

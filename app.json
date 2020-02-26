@@ -12,6 +12,7 @@
     "pages/singerDetails/singerDetails",
     "pages/albumDetails/albumDetails",
     "pages/djDetails/djDetails",
+    "pages/songDetails/songDetails",
     "component/comm/djRadios"
   ],
   "window": {

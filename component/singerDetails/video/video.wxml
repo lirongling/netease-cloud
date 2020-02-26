@@ -2,17 +2,32 @@
 <view class="container">
   <view class="item flex a-center" wx:for="{{mvs}}" wx:key="index">
     <view class="item-left">
-      <image class="img" src="{{item.imgurl}}" mode="widthFix" />
+      <image class="img" src="{{item.imgurl}}" mode="widthFix" wx:if="{{item.imgurl}}" />
+      <image class="img" src="{{item.cover}}" mode="widthFix" wx:else />
       <view class="play flex a-center">
         <van-icon name="play-circle-o" class="paly-ico" />
         {{filter.numberVonversion(item.playCount)}}
       </view>
     </view>
     <view class="item-right">
-      <view class="name">{{item.name}}</view>
-      <view class="time">
-        {{item.publishTime}}
-        <text class="artist-name">by:{{item.artist.name}}</text>
+      <view class="name">
+        <rich-text nodes="{{item.name}}"></rich-text>
+      </view>
+      <view class="time flex a-center">
+        <view>
+          <view wx:if="{{item.publishTime}}">{{item.publishTime}}</view>
+          <view wx:else>{{item.duration}}</view>
+        </view>
+        <view class="flex a-center">
+          <view class="artist-name flex a-center" wx:if="{{item.artist.name}}">
+            by:
+            <rich-text nodes="{{item.artist.name}}"></rich-text>
+          </view>
+          <view class="artist-name flex a-center" wx:else>
+            by:
+            <rich-text nodes="{{item.artists[0].name}}"></rich-text>
+          </view>
+        </view>
       </view>
     </view>
   </view>

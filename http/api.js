@@ -52,8 +52,13 @@ export default {
         return service.get('/personalized/djprogram')
     },
     // 电台 节目详情
-    getDjDetails(id) {
-        return service.get(`dj/program/detail?id=${id}`)
+    getDjDetails(id, n) {
+        if (n != 1) {
+            return service.get(`dj/program/detail?id=${id}`)
+        } else {
+            return service.get(`/dj/detail?rid=${id}`)
+        }
+
     },
     // 电台节目评论
     getDjComment(id) {
@@ -77,7 +82,7 @@ export default {
     getArtistAlbum(id, offset, limit) {
         return service.get(`/artist/album?id=${id}&offset=${offset}&limit=${limit}`)
     },
-    //获取歌手单曲 
+    //音乐是否可用
     getArtistSong(id) {
         return service.get(`/artists?id=${id}`)
     },
@@ -86,10 +91,22 @@ export default {
         return service.get(`/check/music?id=${id}`)
     },
 
+    // 获取音乐 url
+    getPlaySong(id) {
+        return service.get(`/song/url?id=${id}`)
+    },
+
+    // 获取音乐详情
+    getSongDetails(id) {
+        return service.get(`/song/detail?ids=${id}`)
+    },
+
     //获取歌手MV
     getArtistMv(id, offset, limit) {
         return service.get(`/artist/mv?id=${id}&offset=${offset}&limit=${limit}`)
     },
+
+
     // 登录页
     // 登录页有两个接口，一个手机号，一个邮箱登录
     // 手机号登录(需传入两个参数，phone: 手机号码 password: 密码)
@@ -140,6 +157,8 @@ export default {
     search(keywords, type, offset, limit) {
         return service.get(`/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`)
     },
+
+
     // 修改用户信息
     //     gender: 性别 0:保密 1:男性 2:女性
 

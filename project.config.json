@@ -72,17 +72,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/phoneLogin/phoneLogin",
-					"pathName": "pages/phoneLogin/phoneLogin",
-					"query": "id=7763&name=张惠妹",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/djDetails/djDetails",
-					"pathName": "pages/djDetails/djDetails",
-					"query": "id=2065561916",
+					"id": 2,
+					"name": "pages/songDetails/songDetails",
+					"pathName": "pages/songDetails/songDetails",
+					"query": "id= 1424573763",
 					"scene": null
 				}
 			]

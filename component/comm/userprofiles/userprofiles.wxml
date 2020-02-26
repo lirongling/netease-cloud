@@ -1,8 +1,23 @@
 <view class="container">
   <view class="item flex a-center j-between" wx:for="{{userprofiles}}" wx:key="index">
-    <view class="item-left">
+    <view class="item-left flex a-center">
       <image class="item-img" src="{{item.avatarUrl}}" mode="widthFix" />
+      <view class="item-details">
+        <view class="item-user  flex a-center">
+          <view class="item-name ellipsiss">
+            <rich-text nodes="{{item.nickname}}"></rich-text>
+          </view>
+          <image class="item-gender" src="../../../assets/images/nan.png" mode="widthFix" wx:if="{{item.gender===1}}" />
+          <image class="item-gender" src="../../../assets/images/nv.png" mode="widthFix" wx:elif="{{item.gender===2}}" />
+        </view>
+        <view class="item-signature ellipsiss">
+          <rich-text nodes="{{item.signature}}"></rich-text>
+        </view>
+      </view>
     </view>
-    <view class="item-right"></view>
+    <view class="item-right flex a-center">
+      <view class="add">+</view>
+      关注
+    </view>
   </view>
 </view>

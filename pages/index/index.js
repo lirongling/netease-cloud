@@ -248,7 +248,8 @@ create.Page(store, {
         store.data.searchText = e.detail
         this.setData({
             isSussgest: false,
-            searchWord: e.detail
+            searchWord: e.detail,
+            offset: 0,
         })
         this.getHeight()
         this.searchs(e.detail)
@@ -263,7 +264,10 @@ create.Page(store, {
         })
     },
     lower() {
-        this.searchs(this.data.searchWord)
+        if (this.data.active) {
+            this.searchs(this.data.searchWord)
+        }
+
     },
 
 
@@ -275,8 +279,12 @@ create.Page(store, {
     },
     delDuration(res, n, keywords) {
         res.map(item => {
-            item.durationms = util.changeDuration(item.durationms / n)
-                // item.title = util.keyWord(item.title, keywords)
+            if (n !== 1) {
+                item.durationms = util.changeDuration(item.durationms / n)
+                    // item.title = util.keyWord(item.title, keywords)
+            } else {
+                item.duration = util.changeDuration(item.duration / n)
+            }
         })
     },
     // 关键词高亮
@@ -309,28 +317,27 @@ create.Page(store, {
         api.search(keywords, this.data.type, this.data.offset, this.data.limit).then(res => {
             wx.hideLoading();
             if (res.code === 200) {
-                this.data.offset++
-                    res.result = JSON.parse(util.keyWord(JSON.stringify(res.result), keywords))
+
+                res.result = JSON.parse(util.keyWord(JSON.stringify(res.result), keywords))
                 if (this.data.type === 1018) {
                     // this.keyword(res.result.video.videos, keywords)
                     this.dealTime(res.result.song.songs)
                     this.dealTime(res.result.album.albums)
                     this.delDuration(res.result.video.videos, 1000, keywords)
                 } else if (this.data.type === 1) {
-                    this.dealTime(res.result.songs)
                     if (this.data.offset > 1) {
-                        if (res.result.songs.length > 0) {
+                        if (res.result.songs) {
                             res.result.songs = this.data.searchAll.songs.concat(res.result.songs)
                         } else {
+                            res.result.songs = this.data.searchAll.songs
                             wx.showToast({
                                 title: '没有更多数据了哟',
                                 icon: 'none',
-
                             });
-                            this.data.offset--
+
                         }
                     }
-                    if (res.result.songs.length === 0) {
+                    if (!res.result.songCount && this.data.offset === 0) {
                         wx.showToast({
                             title: '暂无此数据',
                             icon: 'none',
@@ -338,41 +345,40 @@ create.Page(store, {
                     }
 
                 } else if (this.data.type === 10) {
-                    this.dealTime(res.result.albums)
                     if (this.data.offset > 1) {
-                        if (res.result.albums.length > 0) {
+                        if (res.result.albums) {
+                            this.dealTime(res.result.albums)
                             res.result.albums = this.data.searchAll.albums.concat(res.result.albums)
                         } else {
+                            res.result.albums = this.data.searchAll.albums
                             wx.showToast({
                                 title: '没有更多数据了哟',
                                 icon: 'none',
-
                             });
-                            this.data.offset--
                         }
                     }
-                    if (res.result.albums.length === 0) {
+                    if (!res.result.albumCount && this.data.offset === 0) {
                         wx.showToast({
                             title: '暂无此数据',
                             icon: 'none',
                         });
+                        res.result.albums = this.data.searchAll.albums
                     }
-
                 } else if (this.data.type === 100) {
-
                     if (this.data.offset > 1) {
-                        if (res.result.artists.length > 0) {
+                        if (res.result.artists) {
                             res.result.artists = this.data.searchAll.artists.concat(res.result.artists)
                         } else {
+                            res.result.artists = this.data.searchAll.artists
                             wx.showToast({
                                 title: '没有更多数据了哟',
                                 icon: 'none',
 
                             });
-                            this.data.offset--
+
                         }
                     }
-                    if (res.result.artists.length === 0) {
+                    if (!res.result.artists && this.data.offset === 0) {
                         wx.showToast({
                             title: '暂无此数据',
                             icon: 'none',
@@ -380,20 +386,126 @@ create.Page(store, {
                     }
 
                 } else if (this.data.type === 1000) {
+                    if (this.data.offset > 1) {
+                        if (res.result.playlists) {
+                            res.result.playlists = this.data.searchAll.playlists.concat(res.result.playlists)
+                        } else {
+                            res.result.playlists = this.data.searchAll.playlists
+                            wx.showToast({
+                                title: '没有更多数据了哟',
+                                icon: 'none',
+                            });
+                        }
+                    }
+                    if (!res.result.playlists && this.data.offset === 0) {
+                        wx.showToast({
+                            title: '暂无此数据',
+                            icon: 'none',
+                        });
+                    }
+
+                } else if (this.data.type === 1002) {
 
                     if (this.data.offset > 1) {
-                        if (res.result.playlists.length > 0) {
-                            res.result.playlists = this.data.searchAll.playlists.concat(res.result.playlists)
+                        if (res.result.userprofiles) {
+                            res.result.userprofiles = this.data.searchAll.userprofiles.concat(res.result.userprofiles)
+                        } else {
+                            res.result.userprofiles = this.data.searchAll.userprofiles
+                            wx.showToast({
+                                title: '没有更多数据了哟',
+                                icon: 'none',
+                            });
+                        }
+                    }
+                    if (!res.result.userprofiles && this.data.offset === 0) {
+                        wx.showToast({
+                            title: '暂无此数据',
+                            icon: 'none',
+                        });
+                    }
+
+                } else if (this.data.type === 1004) {
+                    if (this.data.offset > 1) {
+                        if (res.result.mvs) {
+                            this.delDuration(res.result.mvs, 1)
+                            res.result.mvs = this.data.searchAll.mvs.concat(res.result.mvs)
+                        } else {
+                            res.result.mvs = this.data.searchAll.mvs
+                            wx.showToast({
+                                title: '没有更多数据了哟',
+                                icon: 'none',
+
+                            });
+
+                        }
+                    }
+                    if (!res.result.mvs && this.data.offset === 0) {
+                        wx.showToast({
+                            title: '暂无此数据',
+                            icon: 'none',
+                        });
+                    }
+
+                } else if (this.data.type === 1006) {
+
+                    if (this.data.offset > 1) {
+                        if (res.result.songs) {
+                            this.dealTime(res.result.songs)
+                            res.result.songs = this.data.searchAll.songs.concat(res.result.songs)
+                        } else {
+                            res.result.songs = this.data.searchAll.songs
+                            wx.showToast({
+                                title: '没有更多数据了哟',
+                                icon: 'none',
+
+                            });
+                        }
+                    }
+                    if (!res.result.songs && this.data.offset === 0) {
+                        wx.showToast({
+                            title: '暂无此数据',
+                            icon: 'none',
+                        });
+                    }
+
+                } else if (this.data.type === 1009) {
+                    // this.dealTime(res.result.songs)
+                    if (this.data.offset > 1) {
+                        if (res.result.djRadios) {
+                            res.result.djRadios = this.data.searchAll.djRadios.concat(res.result.djRadios)
+                        } else {
+                            res.result.djRadios = this.data.searchAll.djRadios
+                            wx.showToast({
+                                title: '没有更多数据了哟',
+                                icon: 'none',
+
+                            });
+
+                        }
+                    }
+                    if (!res.result.djRadios && this.data.offset === 0) {
+                        wx.showToast({
+                            title: '暂无此数据',
+                            icon: 'none',
+                        });
+                    }
+
+                } else if (this.data.type === 1014) {
+
+                    if (this.data.offset > 1) {
+                        if (res.result.videos) {
+                            this.delDuration(res.result.videos, 1000)
+                            res.result.videos = this.data.searchAll.videos.concat(res.result.videos)
                         } else {
                             wx.showToast({
                                 title: '没有更多数据了哟',
                                 icon: 'none',
 
                             });
-                            this.data.offset--
+
                         }
                     }
-                    if (res.result.playlists.length === 0) {
+                    if (!res.result.videos && this.data.offset === 0) {
                         wx.showToast({
                             title: '暂无此数据',
                             icon: 'none',
@@ -405,6 +517,7 @@ create.Page(store, {
                     searchAll: res.result,
                     offset: this.data.offset,
                 })
+                this.data.offset += this.data.limit
                 console.log(res);
             }
 
@@ -413,8 +526,14 @@ create.Page(store, {
             console.log(err);
         })
     },
+
     changeTabs(e) {
-        let a = e.detail.index
+        let a = null
+        if (isNaN(e.detail)) {
+            a = e.detail.index
+        } else {
+            a = e.detail
+        }
         this.setData({
             active: a,
             type: this.data.searchType[a],

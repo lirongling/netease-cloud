@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="item flex a-center" wx:for="{{hotAlbums}}" wx:key="index">
+  <view class="item flex a-center" wx:for="{{hotAlbums}}" wx:key="index" bind:tap="goDetails" data-id="{{item.id}}">
     <view class="item-left">
       <image class="img" src="{{item.picUrl}}" mode="widthFix" />
     </view>

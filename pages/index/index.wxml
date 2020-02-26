@@ -19,14 +19,14 @@
     <hotSearch wx:if="{{isSussgest}}" bind:search="search"></hotSearch>
     <view class="search-content" wx:else>
       <view class="tabs">
-        <van-tabs swipeable asticky active="{{ active }}" bind:change="changeTabs">
+        <van-tabs animated swipeable asticky active="{{ active }}" bind:change="changeTabs">
           <van-tab title="{{item.name}}" wx:for="{{tabArr}}" wx:key="index"></van-tab>
         </van-tabs>
       </view>
       <view class="tab-content" id="contentsongs">
-        <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
+        <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="max-height: {{contentHeight}}px;" scroll-with-animation="true" bindscrolltolower="lower"   >
           <view wx:if="{{active===0}}">
-            <searchAll searchAll="{{searchAll}}" bind:keyword="search"></searchAll>
+            <searchAll searchAll="{{searchAll}}" bind:active="changeTabs" bind:keyword="search"></searchAll>
           </view>
           <view wx:elif="{{active===1}}">
             <playSongs hotSongs="{{searchAll.songs}}"></playSongs>
@@ -44,6 +44,22 @@
           </view>
           <view wx:elif="{{active===5}}">
             <userprofiles userprofiles="{{searchAll.userprofiles}}"></userprofiles>
+          </view>
+          <view wx:elif="{{active===6}}">
+            <videoss mvs="{{searchAll.mvs}}"></videoss>
+          </view>
+          <view wx:elif="{{active===7}}">
+            <playSongs hotSongs="{{searchAll.songs}}"></playSongs>
+            <song hotSongs="{{searchAll.songs}}"></song>
+            <!-- <searchAll searchAll="{{searchAll}}" bind:keyword="search"></searchAll> -->
+          </view>
+          <view wx:elif="{{active===8}}">
+            <djRadios djRadios="{{searchAll.djRadios}}"></djRadios>
+          </view>
+          <view wx:elif="{{active===9}}">
+            <view wx:for="{{searchAll.videos}}" wx:key="index">
+              <videos video="{{item}}"></videos>
+            </view>
           </view>
         </scroll-view>
       </view>

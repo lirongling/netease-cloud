@@ -1,11 +1,14 @@
 <view class="container">
   <view class="title">精彩评论</view>
   <view class="comment-item flex" wx:for="{{comments}}" wx:key="index">
-    <image class="img" src="{{item.user.avatarUrl}}" mode="widthFix" />
+    <image class="img" wx:if="{{item.user}}" src="{{item.user.avatarUrl}}" mode="widthFix" />
+    <image class="img" wx:else src="{{item.userProfile.avatarUrl}}" mode="widthFix" />
     <view class="item-right">
-      <view class="nickname">{{item.user.nickname}}</view>
+      <view class="nickname" wx:if="{{item.user}}">{{item.user.nickname}}</view>
+      <view class="nickname" wx:else>{{item.userProfile.nickname}}</view>
       <view class="content">{{item.content}}</view>
-      <view class="time">———{{item.time}}</view>
+      <view class="time" wx:if="{{item.time}}">———{{item.time}}</view>
+      <view class="time" wx:else>———{{item.programName}}</view>
     </view>
   </view>
 </view>

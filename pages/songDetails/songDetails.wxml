@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="navs">
+    <nav></nav>
+  </view>
+  <view class="bg" style="background-image:url({{songDetails.songs[0].al.picUrl}})"></view>
+  <view class="center flex a-center j-center">
+    <image class="center-img" src="{{songDetails.songs[0].al.picUrl}}" mode="widthFix" />
+  </view>
+  <view class="content">1111</view>
+</view>
