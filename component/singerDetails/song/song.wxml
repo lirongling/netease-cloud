@@ -28,7 +28,7 @@
       </view>
     </view>
     <view class="item-right flex  a-center">
-      <view class="action" data-id="{{item.id}}" catch:tap="playMusic">
+      <view class="action" data-id="{{item.id}}" data-item="{{item}}" catch:tap="playMusic">
         <van-icon name="play-circle-o" class="paly-ico" />
       </view>
       <view class="more">

@@ -11,11 +11,11 @@
     height: 100vh;
     background-size: cover;
     background-position: center top;
-    -webkit-filter: blur(15px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
 }
 
 .navs {
@@ -28,7 +28,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-70%);
+    transform: translateY(-80%);
     width: 100%;
     z-index: 999;
 }
@@ -36,12 +36,71 @@
 .center-img {
     width: 50vw;
     border-radius: 50%;
+    animation: go 6s linear infinite;
+}
+
+.action {
+    animation-play-state: paused;
+}
+
+@keyframes go {
+    from {}
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .content {
     position: absolute;
     width: 90%;
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.content-top {
+    /* margin: 20rpx auto; */
+    width: 100%;
+}
+
+.top-ico,
+.order-img {
+    width: 60rpx;
+    /* margin: 0 60rpx; */
+}
+
+.rate {
+    transform: rotate(90deg);
+}
+
+.content-progress {
+    margin: 60rpx auto;
+    width: 100%;
+}
+
+.audio-desc {
+    font-size: 30rpx;
+    color: rgb(112, 112, 112);
+}
+
+.progress {
+    flex: 1;
+    margin: 0 20rpx;
+}
+
+.speech {
+    width: 100%;
+}
+
+.play {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.play-img {
+    width: 93rpx;
+}
+
+.play-imgs {
+    width: 90rpx;
 }

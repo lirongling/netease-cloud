@@ -9,7 +9,7 @@
     <view class="title-right">{{singData.right}}</view>
   </view>
   <view class="content flex j-start f-wrap">
-    <view class="content-item flex a-center f-column  " wx:for="{{singData.data}}" wx:key="index" wx:if="{{index<6}}" data-id="{{item.id}}" bind:tap="goDetails">
+    <view class="content-item flex a-center f-column  " wx:for="{{singData.data}}" wx:key="index" wx:if="{{index<6}}" data-item="{{item}}" data-id="{{item.id}}" bind:tap="goDetails">
       <image class="img" src="{{item.picUrl}}" mode="widthFix" wx:if="{{singData.index!==4}}" />
       <image class="img" src="{{item.coverUrl}}" mode="widthFix" wx:else />
       <view class="name ellipsiss">{{item.name}}</view>

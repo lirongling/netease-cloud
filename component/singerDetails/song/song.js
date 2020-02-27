@@ -1,8 +1,11 @@
 import api from "../../../http/api";
 import create from '../../../utils/store/create'
 import store from '../../../store/index'
+import song from '../../../utils/song'
+const backSong = wx.getBackgroundAudioManager();
+
 create.Component(store, {
-    use: ['songsList'],
+    use: ['songsList', 'songDetails'],
     properties: {
         hotSongs: {
             type: Array,
@@ -17,6 +20,9 @@ create.Component(store, {
     methods: {
         playMusic(e) {
             let id = e.currentTarget.dataset.id
+            let item = e.currentTarget.dataset.item
+            this.store.data.songsList.unshift(item)
+
             this.getIsPlay(id)
         },
         getIsPlay(id) {
@@ -30,6 +36,7 @@ create.Component(store, {
                         title: res.message,
                         icon: 'none',
                     });
+                    song.getUrl();
                 } else {
                     wx.showToast({
                         title: res.message,
@@ -43,8 +50,8 @@ create.Component(store, {
         },
         goSong(e) {
             let id = e.currentTarget.dataset.id
-            console.log(e.currentTarget.dataset.item);
             this.store.data.songsList.unshift(e.currentTarget.dataset.item)
+            song.getUrl();
             wx.navigateTo({
                 url: `/pages/songDetails/songDetails?id=${id}`,
             });

@@ -6,6 +6,8 @@ export default {
         windowHeight: null,
         userInfo: {},
         searchText: '',
-        songsList: []
+        songsList: [],
+        songDetails: {},
+        backSong: wx.getBackgroundAudioManager()
     },
 }

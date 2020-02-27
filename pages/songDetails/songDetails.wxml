@@ -2,9 +2,47 @@
   <view class="navs">
     <nav></nav>
   </view>
-  <view class="bg" style="background-image:url({{songDetails.songs[0].al.picUrl}})"></view>
+  <view class="bg" style="background-image:url({{songDetails[0].al.picUrl}})"></view>
   <view class="center flex a-center j-center">
-    <image class="center-img" src="{{songDetails.songs[0].al.picUrl}}" mode="widthFix" />
+    <image class="center-img {{!playing ? 'action' : ''}}" src="{{songDetails[0].al.picUrl}}" mode="widthFix" />
   </view>
-  <view class="content">1111</view>
+  <view class="content flex a-center f-column">
+    <view class="content-top flex a-center j-around">
+      <view wx:for="{{icoArr}}" wx:key="index">
+        <image class="top-ico {{index===(icoArr.length-1) ? 'rate' : ''}}" src="{{item.ico}}" mode="widthFix" />
+      </view>
+    </view>
+    <!-- <view class="section section_gap">
+      <text class="section__title">设置最小/最大值</text>
+      <view class="body-view">
+       
+      </view>
+    </view> -->
+    <view class="content-progress flex a-center j-between">
+      <view class="audio-desc">{{currentProcess}}</view>
+      <view class="progress">
+        <slider bindchange="sliderchange" min="{{0}}" max="{{maxSlider}}" />
+        <!-- <van-slider step="{{sliderStep}}" value="{{sliderValue}}" active-color="#09bb07" bind:drag-end="endDrag" bind:drag="onDrag" bind:change="onDrag" /> -->
+      </view>
+      <view class="audio-desc">{{endProcess}}</view>
+    </view>
+    <view class="speech flex j-around a-center">
+      <view class="order">
+        <image class="order-img" src="../../assets/images/order.png" mode="widthFix" />
+      </view>
+      <view class="up">
+        <image class="order-img" src="../../assets/images/up.png" mode="widthFix" />
+      </view>
+      <view class="play flex a-center j-center" bind:tap="audioPause">
+        <image wx:if="{{playing}}" class="play-img" src="../../assets/images/play.png" mode="widthFix" />
+        <image wx:else class="play-imgs" src="../../assets/images/stop.png" mode="widthFix" />
+      </view>
+      <view class="up">
+        <image class="order-img" src="../../assets/images/down.png" mode="widthFix" />
+      </view>
+      <view class="up">
+        <image class="order-img" src="../../assets/images/li.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
 </view>
