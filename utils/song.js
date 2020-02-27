@@ -13,6 +13,8 @@ const getUrl = () => {
             backSong.title = title
             backSong.play();
             onEnded()
+
+
         }
     }).catch(err => {
         wx.hideLoading();
@@ -30,8 +32,9 @@ const onEnded = () => {
             getSongDetails()
         })
         // backSong.stop(() => {
-        //     getSongDetails()
-        // })
+
+    //     getSongDetails()
+    // })
 }
 
 const getSongDetails = () => {
