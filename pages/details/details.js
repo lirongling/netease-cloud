@@ -1,7 +1,9 @@
 import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
+import song from '../../utils/song'
 create.Page(store, {
+    use: ['songsList'],
     data: {
         id: null,
         number: 0,
@@ -91,6 +93,47 @@ create.Page(store, {
     },
     lower() {
 
+    },
+    play() {
+        // new Set(arr)
+        let a = this.data.playlist.tracks
+        let arr = a.concat(store.data.songsList)
+        this.store.data.songsList = arr.filter(function(item, index, arr) {
+            return arr.indexOf(item) === index
+        })
+        console.log(store.data.songsList[0].id);
+        this.getIsPlay(this.store.data.songsList[0].id, false)
+    },
+    getIsPlay(id, flage) {
+        wx.showLoading({
+            title: '加载中',
+        });
+        api.getIsPlay(id).then(res => {
+            wx.hideLoading();
+            if (res.success) {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                });
+                song.getUrl();
+                if (flage) {
+                    wx.navigateTo({
+                        url: `/pages/songDetails/songDetails?id=${id}`,
+                    });
+                }
+            } else {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                });
+            }
+        }).catch(err => {
+            wx.hideLoading();
+            wx.showToast({
+                title: err.response.data.message,
+                icon: 'none',
+            });
+        })
     },
     // 计算scroll高度
     getHeight() {

@@ -30,7 +30,7 @@
       </view>
       <view class="content-list">
         <view class="list-top flex j-between a-center">
-          <view class="list-left flex a-center">
+          <view class="list-left flex a-center" bind:tap="play">
             <van-icon name="play-circle-o" class="paly-icos" />
             <view class="paly-all">
               播放全部

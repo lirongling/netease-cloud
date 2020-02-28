@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="top flex j-between a-center">
+    <view class="top-left">
+      当前播放
+      <text class="top-mount">({{$.songsList.length}})</text>
+    </view>
+    <view class="top-right flex a-center" bind:tap="delAll">
+      删除全部
+      <image class="del-ico" src="../../../assets/images/del.png" mode="widthFix" />
+    </view>
+  </view>
+  <view class="content">
+    <view class="item flex j-between" wx:for="{{$.songsList}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" bind:tap="play">
+      <view class="item-left flex a-end {{item.id===$.songDetails[0].id||nowIdx===index ? 'active' : ''}}">
+        <view class="name ellipsiss">{{item.name}}</view>
+        —
+        <view wx:for="{{item.ar}}" wx:for-item="items" wx:key="index">
+          <view class="arist ellipsiss">{{items.name}}</view>
+        </view>
+      </view>
+      <view class="item-right" data-item="{{item}}" data-index="{{index}}" catch:tap="del">
+        <image class="del-ico" src="../../../assets/images/dels.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+@import "../../../app.wxss";
+.container {
+    /* width: 90%; */
+    width: 90vw;
+    margin: 0 auto;
+    position: relative;
+}
+
+.top {
+    height: 10vh;
+    background: white;
+    z-index: 9;
+    position: absolute;
+    top: -10vh;
+    width: 100%;
+}
+
+.top-left {
+    font-size: 35rpx;
+    font-weight: 550;
+}
+
+.top-mount {
+    font-size: 28rpx;
+    color: rgb(161, 161, 161);
+}
+
+.top-right {
+    font-size: 30rpx;
+}
+
+.del-ico {
+    margin-left: 25rpx;
+    width: 40rpx;
+}
+
+.content {
+    margin-top: 10vh;
+}
+
+.item {
+    margin: 20rpx auto;
+}
+
+.item-left {
+    font-size: 26rpx;
+    color: rgb(136, 136, 136);
+}
+
+.active {
+    color: rgb(219, 47, 47)!important;
+}
+
+.name {
+    font-size: 32rpx!important;
+    -webkit-line-clamp: 1;
+    max-width: 70vw;
+}
+
+.arist {
+    margin-right: 10rpx;
+    -webkit-line-clamp: 1;
+    max-width: 15vw;
+}

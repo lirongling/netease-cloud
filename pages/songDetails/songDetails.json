@@ -1,7 +1,9 @@
 {
     "usingComponents": {
         "nav": "../../component/comm/nav/nav",
-        "van-slider": "vant-weapp/slider"
+        "van-slider": "vant-weapp/slider",
+        "van-popup": "vant-weapp/popup",
+        "songList": "../../component/songDetails/songList/songList"
     },
     "navigationStyle": "custom"
 }

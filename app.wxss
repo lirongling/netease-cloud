@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.a-end {
+    align-items: flex-end;
+}
+
 .f-wrap {
     flex-wrap: wrap;
 }

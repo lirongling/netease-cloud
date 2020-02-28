@@ -2,9 +2,9 @@
   <view class="navs">
     <nav></nav>
   </view>
-  <view class="bg" style="background-image:url({{songDetails[0].al.picUrl}})"></view>
+  <view class="bg" style="background-image:url({{$.songDetails[0].al.picUrl}})"></view>
   <view class="center flex a-center j-center">
-    <image class="center-img {{!playing ? 'action' : ''}}" src="{{songDetails[0].al.picUrl}}" mode="widthFix" />
+    <image class="center-img {{!playing ? 'action' : ''}}" src="{{$.songDetails[0].al.picUrl}}" mode="widthFix" />
   </view>
   <view class="content flex a-center f-column">
     <view class="content-top flex a-center j-around">
@@ -21,28 +21,31 @@
     <view class="content-progress flex a-center j-between">
       <view class="audio-desc">{{currentProcess}}</view>
       <view class="progress">
-        <slider bindchange="sliderchange" min="{{0}}" max="{{maxSlider}}" />
+        <slider bindchange="sliderchange" value="{{sliderValue}}" min="{{0}}" max="{{maxSlider}}" />
         <!-- <van-slider step="{{sliderStep}}" value="{{sliderValue}}" active-color="#09bb07" bind:drag-end="endDrag" bind:drag="onDrag" bind:change="onDrag" /> -->
       </view>
       <view class="audio-desc">{{endProcess}}</view>
     </view>
     <view class="speech flex j-around a-center">
-      <view class="order">
-        <image class="order-img" src="../../assets/images/order.png" mode="widthFix" />
+      <view class="order" bind:tap="changeType">
+        <image class="order-img" src="{{playType[playTypes].ico}}" mode="widthFix" />
       </view>
-      <view class="up">
+      <view class="up" data-num="{{-1}}" bind:tap="up">
         <image class="order-img" src="../../assets/images/up.png" mode="widthFix" />
       </view>
       <view class="play flex a-center j-center" bind:tap="audioPause">
         <image wx:if="{{playing}}" class="play-img" src="../../assets/images/play.png" mode="widthFix" />
         <image wx:else class="play-imgs" src="../../assets/images/stop.png" mode="widthFix" />
       </view>
-      <view class="up">
+      <view class="up" data-num="{{1}}" bind:tap="up">
         <image class="order-img" src="../../assets/images/down.png" mode="widthFix" />
       </view>
-      <view class="up">
+      <view class="up" bind:tap="onClose">
         <image class="order-img" src="../../assets/images/li.png" mode="widthFix" />
       </view>
     </view>
   </view>
+  <van-popup show="{{ showPop }}" bind:close="onClose" round position="bottom" custom-style="height: 50%;">
+    <songList></songList>
+  </van-popup>
 </view>

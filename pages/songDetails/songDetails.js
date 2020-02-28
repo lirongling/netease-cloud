@@ -9,12 +9,12 @@ let audioUrl = "",
 const audioContext = wx.createInnerAudioContext();
 const backSong = wx.getBackgroundAudioManager();
 create.Page(store, {
-    use: ['backSong'],
+    use: ['backSong', 'songDetails'],
     /**
      * 页面的初始数据
      */
     data: {
-        songDetails: {},
+
         songUrl: {},
         icoArr: [
             { ico: '../../assets/images/like.png' },
@@ -34,7 +34,24 @@ create.Page(store, {
         sliderValue: 0,
         id: null,
         currentTime: 0,
-        maxSlider: 100
+        maxSlider: 100,
+        showPop: false,
+        playTypes: song.getType(),
+        playType: [{
+                ico: '../../assets/images/order.png'
+            },
+            {
+                ico: '../../assets/images/cycle.png'
+            },
+            {
+                ico: '../../assets/images/random.png'
+            }
+        ]
+    },
+    onClose() {
+        this.setData({
+            showPop: !this.data.showPop
+        })
     },
     getPlaySong(id) {
         wx.showLoading({
@@ -53,25 +70,23 @@ create.Page(store, {
             console.log(err);
         })
     },
-    getSongDetails(id) {
-        wx.showLoading({
-            title: '加载中',
-        });
-        api.getSongDetails(id).then(res => {
-            wx.hideLoading();
-            if (res.code === 200) {
-                this.setData({
-                    songDetails: res
-                })
+    // 改变播放状态
+    changeType() {
+        this.data.playTypes++
+            if (this.data.playTypes >= this.data.playType.length) {
+                this.data.playTypes = 0
             }
-        }).catch(err => {
-            wx.hideLoading();
-            console.log(err);
+        this.setData({
+            playTypes: this.data.playTypes
         })
+        song.changeType(this.data.playTypes)
     },
+
     sliderchange(event) {
+        backSong.pause()
         let sliderValue = event.detail.value
         backSong.seek(sliderValue)
+        backSong.play()
         this.setData({
             currentProcess: util.changeDuration(seekPosition),
             currentTime: sliderValue
@@ -99,17 +114,27 @@ create.Page(store, {
             })
         }
     },
+    // 上一首or下一首
+    up(e) {
+        let a = e.currentTarget.dataset.num
+        song.getUrl(a)
+
+    },
+
 
     audioStatuss() {
-        const _this = this;
+
         //音频播放进度更新事件
         backSong.onTimeUpdate(() => {
+
+                // console.log(backSong.coverImgUrl);
+                // console.log(backSong.title);
                 seekPosition = backSong.currentTime;
-                _this.setData({
+                this.setData({
                     audioDuration: backSong.duration,
                     currentProcess: util.changeDuration(backSong.currentTime),
                     endProcess: util.changeDuration(backSong.duration),
-                    sliderValue: (seekPosition / backSong.duration) * 100,
+                    sliderValue: seekPosition,
                     maxSlider: backSong.duration,
                 })
             })
@@ -123,6 +148,10 @@ create.Page(store, {
                 playing: false,
                 pause: true
             })
+
+        })
+        backSong.onStop(() => {
+
         })
     },
     /**
@@ -130,11 +159,7 @@ create.Page(store, {
      */
     onLoad: function(options) {
         this.audioStatuss()
-        let a = wx.getStorageSync('songDetails')
-        this.setData({
-            id: options.id,
-            songDetails: a
-        })
+
     },
 
     /**

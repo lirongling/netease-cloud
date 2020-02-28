@@ -4,7 +4,7 @@ import create from '../../utils/store/create'
 import store from '../../store/index'
 import util from '../../utils/util'
 create.Page(store, {
-    use: ['navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo', 'searchWord'],
+    use: ['songDetails', 'navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo', 'searchWord'],
     data: {
         showPop: false,
         personalized: {
@@ -562,7 +562,11 @@ create.Page(store, {
 
     },
     onShow: function() {
-
+        if (wx.getStorageSync('songDetails')) {
+            let time = setInterval(() => {
+                this.store.data.songDetails = wx.getStorageSync('songDetails')
+            }, 2000);
+        }
     },
     onHide: function() {
 

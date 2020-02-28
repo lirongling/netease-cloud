@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="item flex j-between a-center" wx:for="{{hotSongs}}" wx:key="index" data-item="{{item}}" data-id="{{item.id}}" bind:tap="goSong">
+  <view class="item flex j-between a-center" wx:for="{{hotSongs}}" wx:key="index" data-item="{{item}}" data-id="{{item.id}}" data-flage="{{true}}" bind:tap="playMusic">
     <view class="item-left flex  a-center ">
       <view class="item-index">{{index+1}}</view>
       <view class="item-details">
@@ -28,7 +28,7 @@
       </view>
     </view>
     <view class="item-right flex  a-center">
-      <view class="action" data-id="{{item.id}}" data-item="{{item}}" catch:tap="playMusic">
+      <view class="action" data-id="{{item.id}}" data-item="{{item}}" data-flage="{{false}}" catch:tap="playMusic">
         <van-icon name="play-circle-o" class="paly-ico" />
       </view>
       <view class="more">

@@ -30,7 +30,7 @@
     left: 0;
     transform: translateY(-80%);
     width: 100%;
-    z-index: 999;
+    z-index: 99;
 }
 
 .center-img {

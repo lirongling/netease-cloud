@@ -21,11 +21,21 @@ create.Component(store, {
         playMusic(e) {
             let id = e.currentTarget.dataset.id
             let item = e.currentTarget.dataset.item
-            this.store.data.songsList.unshift(item)
-
-            this.getIsPlay(id)
+            let flage = e.currentTarget.dataset.flage
+            if (JSON.stringify(item.name).includes('span')) {
+                let a = item.name.indexOf('>') + 1
+                let b = item.name.lastIndexOf('<')
+                item.name = item.name.slice(a, b)
+            }
+            let isCheck = this.store.data.songsList.some(item => {
+                return item.id === id
+            })
+            if (!isCheck) {
+                this.store.data.songsList.unshift(item)
+            }
+            this.getIsPlay(id, flage)
         },
-        getIsPlay(id) {
+        getIsPlay(id, flage) {
             wx.showLoading({
                 title: '加载中',
             });
@@ -37,6 +47,11 @@ create.Component(store, {
                         icon: 'none',
                     });
                     song.getUrl();
+                    if (flage) {
+                        wx.navigateTo({
+                            url: `/pages/songDetails/songDetails?id=${id}`,
+                        });
+                    }
                 } else {
                     wx.showToast({
                         title: res.message,
@@ -45,13 +60,19 @@ create.Component(store, {
                 }
             }).catch(err => {
                 wx.hideLoading();
-                console.log(err);
+                wx.showToast({
+                    title: err.response.data.message,
+                    icon: 'none',
+                });
             })
         },
         goSong(e) {
             let id = e.currentTarget.dataset.id
             this.store.data.songsList.unshift(e.currentTarget.dataset.item)
             song.getUrl();
+            setTimeout(() => {
+                this.store.data.songDetails = wx.getStorageSync('songDetails')
+            }, 3000)
             wx.navigateTo({
                 url: `/pages/songDetails/songDetails?id=${id}`,
             });
