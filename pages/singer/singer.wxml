@@ -16,4 +16,5 @@
       </view>
     </van-tab>
   </van-tabs>
+  <playSong></playSong>
 </view>

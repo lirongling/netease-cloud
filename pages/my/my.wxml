@@ -25,4 +25,5 @@
       </view>
     </view>
   </view>
+  <playSong></playSong>
 </view>

@@ -13,7 +13,7 @@
       </view>
     </view>
   </view>
-  <view class="item flex a-center j-between" wx:for="{{songs}}" wx:key="index">
+  <view class="item flex a-center j-between" wx:for="{{songs}}" wx:key="index" data-item="{{item}}" data-id="{{item.id}}" bind:tap="play">
     <view class="item-left flex a-center">
       <view class="item-index">{{index+1}}</view>
       <view class="item-details">

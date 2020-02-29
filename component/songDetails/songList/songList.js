@@ -28,6 +28,8 @@ create.Component(store, {
                 success: (result) => {
                     if (result.confirm) {
                         this.store.data.songsList = []
+                        this.store.data.songDetails = []
+                        this.triggerEvent('close')
                         song.clear()
                         backSong.stop()
                         wx.navigateBack({
@@ -58,7 +60,9 @@ create.Component(store, {
             let index = e.currentTarget.dataset.index
             let item = e.currentTarget.dataset.item
             this.store.data.songsList.splice(index, 1)
-            if (this.store.data.songsList.length === 0) {
+            if (store.data.songsList.length === 0) {
+                this.store.data.songDetails = []
+                this.triggerEvent('close')
                 song.clear()
                 backSong.stop()
                 wx.navigateBack({

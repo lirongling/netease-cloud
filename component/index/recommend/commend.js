@@ -2,8 +2,9 @@ import create from '../../../utils/store/create'
 import store from '../../../store/index'
 import song from '../../../utils/song'
 import api from "../../../http/api";
+import util from '../../../utils/util'
 create.Component(store, {
-    use: ['songsList', 'songDetails'],
+    use: ['songsList', 'songDetails', 'mvDetails'],
     properties: {
         singData: {
             type: Object,
@@ -49,13 +50,19 @@ create.Component(store, {
                     let b1 = item.name.lastIndexOf('<')
                     item.name = item.name.slice(a1, b1)
                 }
-                let isCheck = this.store.data.songsList.some(item => {
-                    return item.id === id
+                store.data.songsList.map((items, index) => {
+                    if (items.id === id) {
+                        this.store.data.songsList.splice(index, 1)
+                    }
                 })
-                if (!isCheck) {
-                    this.store.data.songsList.unshift(item)
-                }
+                this.store.data.songsList.unshift(item)
                 this.getIsPlay(id, flage)
+            } else if (b == 4) {
+                item.duration = util.changeDuration(item.duration)
+                this.store.data.mvDetails = item
+                wx.navigateTo({
+                    url: `/pages/audioDetails/audioDetails?id=${a}`,
+                });
             } else if (b == 5 || b == 6) {
                 wx.navigateTo({
                     url: `/pages/djDetails/djDetails?id=${a}&number=${b}`,

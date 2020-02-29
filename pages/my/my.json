@@ -1,5 +1,7 @@
 {
     "usingComponents": {
-        "van-button": "../../lib/vant/button/index"
+        "van-tab": "../../lib/vant/tab/index",
+        "van-tabs": "../../lib/vant/tabs/index",
+        "playSong": "../../component/comm/playSong/playSong"
     }
 }

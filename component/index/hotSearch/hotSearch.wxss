@@ -18,6 +18,10 @@
     margin-top: 60rpx;
 }
 
+.titles {
+    font-weight: 550;
+}
+
 .content-item {
     margin: 30rpx auto;
 }
@@ -63,4 +67,8 @@
     /* margin-top: -10rpx; */
     font-size: 28rpx;
     color: rgb(119, 119, 119);
+}
+
+.del-img {
+    width: 50rpx;
 }

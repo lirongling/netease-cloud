@@ -3,8 +3,9 @@ import api from "../../http/api";
 import create from '../../utils/store/create'
 import store from '../../store/index'
 import util from '../../utils/util'
+const backSong = wx.getBackgroundAudioManager();
 create.Page(store, {
-    use: ['songDetails', 'navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo', 'searchWord'],
+    use: ['songDetails', 'searchHistory', 'navHeight', 'navTop', 'navRight', 'windowHeight', 'navHeights', 'userInfo', 'searchWord'],
     data: {
         showPop: false,
         personalized: {
@@ -252,6 +253,7 @@ create.Page(store, {
             offset: 0,
         })
         this.getHeight()
+        this.setStorage(e.detail)
         this.searchs(e.detail)
         wx.pageScrollTo({
             scrollTop: 0,
@@ -526,6 +528,23 @@ create.Page(store, {
             console.log(err);
         })
     },
+    setStorage(a) {
+        let arr = []
+        let b = { keyword: a }
+        if (wx.getStorageSync('searchHistory')) {
+            let arr = wx.getStorageSync('searchHistory')
+            if (!JSON.stringify(arr).includes(a)) {
+                arr.unshift(b)
+                this.store.data.searchHistory.unshift(b)
+                wx.setStorageSync('searchHistory', arr);
+
+            }
+        } else {
+            arr.unshift(b)
+            this.store.data.searchHistory.unshift(b)
+            wx.setStorageSync('searchHistory', arr);
+        }
+    },
 
     changeTabs(e) {
         let a = null
@@ -541,8 +560,14 @@ create.Page(store, {
             searchAll: {}
 
         })
-
         this.searchs(this.data.searchWord)
+    },
+    //音频播放结束
+    songsEnd() {
+        backSong.onPlay(() => {
+            let a = wx.getStorageSync('songDetails')
+            this.store.data.songDetails = wx.getStorageSync('songDetails')
+        })
     },
     //options(Object)
     onLoad: function(options) {
@@ -554,6 +579,10 @@ create.Page(store, {
         this.getDjprogram()
         this.getNavInfo()
         this.getUserInfo()
+        if (wx.getStorageSync('searchHistory')) {
+            this.store.data.searchHistory = wx.getStorageSync('searchHistory')
+        }
+
 
 
 
@@ -562,11 +591,10 @@ create.Page(store, {
 
     },
     onShow: function() {
-        if (wx.getStorageSync('songDetails')) {
-            let time = setInterval(() => {
-                this.store.data.songDetails = wx.getStorageSync('songDetails')
-            }, 2000);
-        }
+        let time = setInterval(() => {
+            this.songsEnd()
+        }, 1000);
+
     },
     onHide: function() {
 

@@ -1,0 +1,17 @@
+<view class="container flex a-center j-between" wx:if="{{$.songDetails[0].id}}">
+  <view class="left flex a-center" bind:tap="goDetails">
+    <image class="left-img" src="{{$.songDetails[0].al.picUrl}}" mode="widthFix" />
+    <view class="details">
+      <view class="name">{{$.songDetails[0].name}}</view>
+      <view class="songer">{{$.songDetails[0].ar[0].name}}</view>
+    </view>
+  </view>
+  <view class="right flex a-center">
+    <image catch:tap="stop" wx:if="{{isPaused}}" class="right-img" mode="widthFix" src="../../../assets/images/play.png" />
+    <image catch:tap="play" wx:else class="right-img" mode="widthFix" src="../../../assets/images/stop.png" />
+    <image catch:tap="onClose" class="right-img" mode="widthFix" src="../../../assets/images/li.png" />
+  </view>
+</view>
+<van-popup show="{{ showPop }}" bind:close="onClose" round position="bottom" custom-style="height: 50%;">
+  <songList bind:close="onClose"></songList>
+</van-popup>

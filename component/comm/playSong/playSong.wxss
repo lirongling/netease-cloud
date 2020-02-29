@@ -1,0 +1,40 @@
+@import "../../../app.wxss";
+.container {
+    /* width: 90%; */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0 20rpx;
+    height: 100rpx;
+    z-index: 99;
+    background: white;
+    box-shadow: 0 -5rpx 30px 15rpx #c2c2c2;
+}
+
+.left-img {
+    width: 80rpx;
+    border-radius: 50%;
+}
+
+.details {
+    margin-left: 10rpx;
+}
+
+.name {
+    font-size: 28rpx;
+}
+
+.songer {
+    font-size: 26rpx;
+    color: rgb(122, 122, 122);
+}
+
+.right {
+    margin-right: 40rpx;
+}
+
+.right-img {
+    width: 60rpx;
+    margin-left: 20rpx;
+}

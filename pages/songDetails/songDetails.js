@@ -89,8 +89,8 @@ create.Page(store, {
         backSong.play()
         this.setData({
             currentProcess: util.changeDuration(seekPosition),
-            currentTime: sliderValue
-
+            currentTime: sliderValue,
+            playing: true,
         })
     },
     //播放暂停
@@ -123,11 +123,12 @@ create.Page(store, {
 
 
     audioStatuss() {
-
-        //音频播放进度更新事件
+        backSong.onPlay(() => {
+            console.log(backSong);
+        })
+        let _this = this
+            //音频播放进度更新事件
         backSong.onTimeUpdate(() => {
-
-                // console.log(backSong.coverImgUrl);
                 // console.log(backSong.title);
                 seekPosition = backSong.currentTime;
                 this.setData({
@@ -136,6 +137,7 @@ create.Page(store, {
                     endProcess: util.changeDuration(backSong.duration),
                     sliderValue: seekPosition,
                     maxSlider: backSong.duration,
+                    playing: true,
                 })
             })
             //音频播放结束
@@ -152,6 +154,17 @@ create.Page(store, {
         })
         backSong.onStop(() => {
 
+        })
+        backSong.onPause(() => {
+            _this.setData({
+                playing: false,
+            })
+        })
+        backSong.onPlay((res) => {
+            console.log(res);
+            _this.setData({
+                playing: true,
+            })
         })
     },
     /**
@@ -173,7 +186,9 @@ create.Page(store, {
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        this.setData({
+            playTypes: song.getType()
+        })
     },
 
     /**

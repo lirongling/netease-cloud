@@ -158,6 +158,15 @@ export default {
         return service.get(`/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`)
     },
 
+    // 获取mv url
+    getMvUrl(id) {
+        return service.get(`/mv/url?id=${id}`)
+    },
+    // 获取mv 热评
+    getCommentMv(id) {
+        return service.get(`/comment/mv?id=${id}`)
+    },
+
 
     // 修改用户信息
     //     gender: 性别 0:保密 1:男性 2:女性

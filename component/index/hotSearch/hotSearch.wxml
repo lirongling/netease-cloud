@@ -1,5 +1,12 @@
 <view class="container">
   <view class="advice"></view>
+  <view class="history" wx:if="{{$.searchHistory.length>0}}">
+    <view class="flex a-center j-between">
+      <view class="titles">搜索历史</view>
+      <image class="del-img" mode="widthFix" src="../../../assets/images/del.png" bind:tap="del" />
+    </view>
+    <simquerys simquerys="{{$.searchHistory}}" bind:keyword="search"></simquerys>
+  </view>
   <view class="content">
     <view class="title">热搜榜</view>
     <view class="content-item flex j-between a-center" wx:for="{{hotDetails}}" wx:key="index" data-keyword="{{item.searchWord}}" bind:tap="search">

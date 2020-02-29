@@ -18,7 +18,8 @@
         "userprofiles": "../../component/comm/userprofiles/userprofiles",
         "videoss": "../../component/singerDetails/video/video",
         "videos": "../../component/comm/video/video",
-        "djRadios": "../../component/comm/djRadios/djRadios"
+        "djRadios": "../../component/comm/djRadios/djRadios",
+        "playSong": "../../component/comm/playSong/playSong"
 
 
     }

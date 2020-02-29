@@ -21,4 +21,6 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 35rpx;
+    max-width: 380rpx;
+    -webkit-line-clamp: 1;
 }

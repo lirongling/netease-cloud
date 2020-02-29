@@ -8,6 +8,8 @@ export default {
         searchText: '',
         songsList: [],
         songDetails: {},
-        backSong: wx.getBackgroundAudioManager()
+        backSong: wx.getBackgroundAudioManager(),
+        searchHistory: [],
+        mvDetails: {}
     },
 }

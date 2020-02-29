@@ -1,6 +1,6 @@
 <view class="container">
   <view class="navs">
-    <nav></nav>
+    <nav title="{{$.songDetails[0].name}}"></nav>
   </view>
   <view class="bg" style="background-image:url({{$.songDetails[0].al.picUrl}})"></view>
   <view class="center flex a-center j-center">
@@ -46,6 +46,6 @@
     </view>
   </view>
   <van-popup show="{{ showPop }}" bind:close="onClose" round position="bottom" custom-style="height: 50%;">
-    <songList></songList>
+    <songList bind:close="onClose"></songList>
   </van-popup>
 </view>

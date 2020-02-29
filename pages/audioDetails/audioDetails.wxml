@@ -1,0 +1,29 @@
+<wxs module="filter" src="../../assets/filter.wxs"></wxs>
+<view class="container">
+  <view class="video-item">
+    <video id="myVideo" src="{{url}}" danmu-btn="{{true}}" enable-danmu="{{true}}" autoplay="{{true}}" object-fit="cover" enable-play-gesture="{{true}}" title="{{$.mvDetails.name}}" danmu-list="{{danmuList}}"></video>
+  </view>
+  <view class="select flex a-center">
+    <view class="input">
+      <input value="{{inputValue}}" bindconfirm="bindSendDanmu" placeholder="请输入" confirm-type="send" bindinput="bindinput" />
+    </view>
+    <image bindtap="download" class="select-img" src="../../assets/images/download1.png" mode="widthFix" />
+    <image bindtap="bindButtonTap" class="select-img" src="../../assets/images/upload.png" mode="widthFix" />
+    <image bindtap="bindSendDanmu" class="select-img" src="../../assets/images/dm.png" mode="widthFix" />
+  </view>
+  <view class="content">
+    <view class="content-name ellipsiss">{{$.mvDetails.name}}</view>
+    <view class="content-number flex a-center">
+      <view class="playedNum flex a-center">
+        <van-icon name="play-circle-o" class="details-ico" />
+        {{filter.numberVonversion($.mvDetails.playCount)}}
+      </view>
+      <view class="duration flex a-center">
+        <van-icon name="underway-o" details-ico />
+        {{$.mvDetails.duration}}
+      </view>
+    </view>
+    <view class="content-desc ellipsiss">简介：{{$.mvDetails.copywriter}}</view>
+    <comments comments="{{hotComments}}"></comments>
+  </view>
+</view>

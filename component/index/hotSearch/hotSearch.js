@@ -1,5 +1,8 @@
 import api from "../../../http/api";
-Component({
+import create from '../../../utils/store/create'
+import store from '../../../store/index'
+create.Component(store, {
+    use: ['searchHistory'],
     properties: {
         myProperty: {
             type: String,
@@ -31,9 +34,33 @@ Component({
             })
         },
         search(e) {
+            let a = ""
+            if (e.currentTarget.dataset.keyword) {
+                a = e.currentTarget.dataset.keyword
+            } else {
+                a = e.detail
+            }
 
-            let a = e.currentTarget.dataset.keyword
             this.triggerEvent('search', a)
+        },
+        del() {
+            wx.showModal({
+                title: '是否确认删除所以搜索历史？',
+                content: '',
+                showCancel: true,
+                cancelText: '取消',
+                cancelColor: '#000000',
+                confirmText: '确定',
+                confirmColor: '#3CC51F',
+                success: (result) => {
+                    if (result.confirm) {
+                        this.store.data.searchHistory = []
+                        wx.removeStorageSync('searchHistory');
+                    }
+                },
+                fail: () => {},
+                complete: () => {}
+            });
         }
     },
     created: function() {

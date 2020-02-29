@@ -4,13 +4,13 @@
       当前播放
       <text class="top-mount">({{$.songsList.length}})</text>
     </view>
-    <view class="top-right flex a-center" bind:tap="delAll">
+    <view class="top-right flex a-center" catch:tap="delAll">
       删除全部
       <image class="del-ico" src="../../../assets/images/del.png" mode="widthFix" />
     </view>
   </view>
   <view class="content">
-    <view class="item flex j-between" wx:for="{{$.songsList}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" bind:tap="play">
+    <view class="item flex j-between" wx:for="{{$.songsList}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" catch:tap="play">
       <view class="item-left flex a-end {{item.id===$.songDetails[0].id||nowIdx===index ? 'active' : ''}}">
         <view class="name ellipsiss">{{item.name}}</view>
         —

@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "van-tab": "../../lib/vant/tab/index",
-        "van-tabs": "../../lib/vant/tabs/index"
+        "van-tabs": "../../lib/vant/tabs/index",
+        "playSong": "../../component/comm/playSong/playSong"
     }
 }

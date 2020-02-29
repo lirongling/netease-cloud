@@ -27,12 +27,12 @@ create.Component(store, {
                 let b = item.name.lastIndexOf('<')
                 item.name = item.name.slice(a, b)
             }
-            let isCheck = this.store.data.songsList.some(item => {
-                return item.id === id
+            store.data.songsList.map((items, index) => {
+                if (items.id === id) {
+                    this.store.data.songsList.splice(index, 1)
+                }
             })
-            if (!isCheck) {
-                this.store.data.songsList.unshift(item)
-            }
+            this.store.data.songsList.unshift(item)
             this.getIsPlay(id, flage)
         },
         getIsPlay(id, flage) {
@@ -40,19 +40,22 @@ create.Component(store, {
                 title: '加载中',
             });
             api.getIsPlay(id).then(res => {
-                wx.hideLoading();
+
                 if (res.success) {
+                    wx.hideLoading();
                     wx.showToast({
                         title: res.message,
                         icon: 'none',
                     });
-                    song.getUrl();
                     if (flage) {
                         wx.navigateTo({
                             url: `/pages/songDetails/songDetails?id=${id}`,
                         });
                     }
+                    song.getUrl();
+
                 } else {
+                    wx.hideLoading();
                     wx.showToast({
                         title: res.message,
                         icon: 'none',

@@ -3,5 +3,5 @@
     <van-icon name="arrow-left" class="back" bind:tap="back" />
     <van-icon name="wap-home-o" bind:tap="home" />
   </view>
-  <view class="title">{{title}}</view>
+  <view class="title ellipsiss">{{title}}</view>
 </view>

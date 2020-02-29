@@ -13,6 +13,7 @@
         "pages/albumDetails/albumDetails",
         "pages/djDetails/djDetails",
         "pages/songDetails/songDetails",
+        "pages/audioDetails/audioDetails",
         "component/comm/djRadios"
     ],
     "requiredBackgroundModes": ["audio"],
