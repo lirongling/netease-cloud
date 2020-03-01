@@ -46,7 +46,7 @@
             <userprofiles userprofiles="{{searchAll.userprofiles}}"></userprofiles>
           </view>
           <view wx:elif="{{active===6}}">
-            <videoss mvs="{{searchAll.mvs}}"></videoss>
+            <videoss mvs="{{searchAll.mvs}}" type="{{0}}"></videoss>
           </view>
           <view wx:elif="{{active===7}}">
             <playSongs hotSongs="{{searchAll.songs}}"></playSongs>
@@ -58,7 +58,7 @@
           </view>
           <view wx:elif="{{active===9}}">
             <view wx:for="{{searchAll.videos}}" wx:key="index">
-              <videos video="{{item}}"></videos>
+              <videos video="{{item}}" type="{{1}}"></videos>
             </view>
           </view>
         </scroll-view>

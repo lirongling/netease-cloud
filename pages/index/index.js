@@ -427,9 +427,10 @@ create.Page(store, {
                     }
 
                 } else if (this.data.type === 1004) {
+                    this.delDuration(res.result.mvs, 1)
                     if (this.data.offset > 1) {
                         if (res.result.mvs) {
-                            this.delDuration(res.result.mvs, 1)
+
                             res.result.mvs = this.data.searchAll.mvs.concat(res.result.mvs)
                         } else {
                             res.result.mvs = this.data.searchAll.mvs
@@ -493,10 +494,10 @@ create.Page(store, {
                     }
 
                 } else if (this.data.type === 1014) {
-
+                    this.delDuration(res.result.videos, 1000)
                     if (this.data.offset > 1) {
                         if (res.result.videos) {
-                            this.delDuration(res.result.videos, 1000)
+
                             res.result.videos = this.data.searchAll.videos.concat(res.result.videos)
                         } else {
                             wx.showToast({

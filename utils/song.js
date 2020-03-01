@@ -31,7 +31,7 @@ const getUrls = (item) => {
                         title: '资源未找到',
                         icon: 'none',
                     });
-                    clearInterval(time)
+
                 } else {
                     store.data.songsList.splice(i - 1, 1)
                     wx.showToast({
@@ -39,6 +39,7 @@ const getUrls = (item) => {
                         icon: 'none',
                     });
                     flage = true
+                    console.log('object111');
                     action()
                 }
 
@@ -58,21 +59,21 @@ const onEnded = () => {
     setTimeout(() => {
 
         backSong.onEnded(() => {
-                console.log(i);
-                playType()
-                setTimeout(() => {
-                    console.log('1object');
-                    flage = true
-                    action()
-                }, 500)
-            })
-            // backSong.onStop(() => {
-            //     playType()
-            //     setTimeout(() => {
-            //         console.log('2object');
-            //         flage = true
-            //     }, 500)
-            // })
+            console.log(i);
+            playType()
+            setTimeout(() => {
+                console.log('1object');
+                flage = true
+                action()
+            }, 500)
+        })
+        backSong.onStop(() => {
+            playType()
+            setTimeout(() => {
+                console.log('2object');
+                flage = true
+            }, 500)
+        })
     }, 1000)
 
 
@@ -102,6 +103,7 @@ const action = (num, index) => {
         // clearInterval(time)
         // backSong.pause()
     if (index != undefined) {
+        flage = false
         i = index
     }
     if (num != undefined) {

@@ -158,13 +158,22 @@ export default {
         return service.get(`/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`)
     },
 
-    // 获取mv url
-    getMvUrl(id) {
-        return service.get(`/mv/url?id=${id}`)
+    // 获取mv/视屏 url
+    getMvUrl(id, type) {
+        if (type == 0) {
+            return service.get(`/mv/url?id=${id}`)
+        } else {
+            return service.get(`/video/url?id=${id}`)
+        }
     },
-    // 获取mv 热评
-    getCommentMv(id) {
-        return service.get(`/comment/mv?id=${id}`)
+    // 获取mv/视屏 热评
+    getCommentMv(id, type) {
+        if (type == 0) {
+            return service.get(`/comment/mv?id=${id}`)
+        } else {
+            return service.get(`/comment/video?id=${id}`)
+        }
+
     },
 
 

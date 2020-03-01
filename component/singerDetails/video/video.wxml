@@ -1,6 +1,6 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
 <view class="container">
-  <view class="item flex a-center" wx:for="{{mvs}}" wx:key="index">
+  <view class="item flex a-center" wx:for="{{mvs}}" wx:key="index" data-item="{{item}}" data-id="{{item.id}}" bind:tap="goDetails">
     <view class="item-left">
       <image class="img" src="{{item.imgurl}}" mode="widthFix" wx:if="{{item.imgurl}}" />
       <image class="img" src="{{item.cover}}" mode="widthFix" wx:else />

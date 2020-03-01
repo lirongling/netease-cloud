@@ -40,7 +40,8 @@ input {
 }
 
 .playedNum,
-.duration {
+.duration,
+.artist {
     margin-right: 20rpx;
 }
 
@@ -63,6 +64,16 @@ input {
     font-size: 26rpx;
     color: #8d8d8d;
     -webkit-line-clamp: 3;
+}
+
+.publish-time {
+    font-size: 26rpx;
+    color: #5c5b5b;
+}
+
+.comment {
+    width: 100vw;
+    margin-left: -5%;
 }
 
 

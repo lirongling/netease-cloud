@@ -1,7 +1,7 @@
 import api from '../../http/api'
 import create from '../../utils/store/create'
 import store from '../../store/index'
-let VideoContext = null
+let VideoContext = wx.createVideoContext('myVideo')
 create.Page(store, {
     use: ['mvDetails'],
 
@@ -86,19 +86,39 @@ create.Page(store, {
         }
         return '#' + rgb.join('')
     },
-    getUrl(id) {
+    getUrl(id, type) {
         wx.showLoading({
             title: '加载中',
             mask: true,
 
         });
-        api.getMvUrl(id).then(res => {
+        api.getMvUrl(id, type).then(res => {
             wx.hideLoading();
             if (res.code === 200) {
+                if (type == 0) {
+                    if (res.data.url == null) {
+                        wx.showToast({
+                            title: '暂无版权',
+                            icon: 'none',
+                        });
+                    } else {
+                        this.data.url = res.data.url
+                    }
+
+                } else {
+                    if (!res.urls[0]) {
+                        wx.showToast({
+                            title: '暂无版权',
+                            icon: 'none',
+                        });
+                    } else {
+                        this.data.url = res.urls[0].url
+                    }
+
+                }
                 this.setData({
-                    url: res.data.url
+                    url: this.data.url
                 })
-                VideoContext = wx.createVideoContext('myVideo')
                 VideoContext.play()
             }
         }).catch(err => {
@@ -112,13 +132,13 @@ create.Page(store, {
         })
     },
     // 获取热评
-    getCommentMv(id) {
+    getCommentMv(id, type) {
         wx.showLoading({
             title: '加载中',
             mask: true,
 
         });
-        api.getCommentMv(id).then(res => {
+        api.getCommentMv(id, type).then(res => {
             wx.hideLoading();
             if (res.code === 200) {
                 this.setData({
@@ -135,8 +155,10 @@ create.Page(store, {
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.getUrl(options.id)
-        this.getCommentMv(options.id)
+        this.getUrl(options.id, options.type)
+        this.getCommentMv(options.id, options.type)
+
+
     },
 
     /**

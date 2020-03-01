@@ -61,7 +61,7 @@ create.Component(store, {
                 item.duration = util.changeDuration(item.duration)
                 this.store.data.mvDetails = item
                 wx.navigateTo({
-                    url: `/pages/audioDetails/audioDetails?id=${a}`,
+                    url: `/pages/audioDetails/audioDetails?id=${a}&type=0`,
                 });
             } else if (b == 5 || b == 6) {
                 wx.navigateTo({

@@ -1,5 +1,5 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
-<view class="item flex a-center j-start">
+<view class="item flex a-center j-start" data-id="{{video.vid}}" bind:tap="goDetails">
   <view class="item-left">
     <image class="img" src="{{video.coverUrl}}" mode="widthFix" />
     <view class="play flex a-center">

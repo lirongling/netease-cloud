@@ -12,7 +12,12 @@
     <image bindtap="bindSendDanmu" class="select-img" src="../../assets/images/dm.png" mode="widthFix" />
   </view>
   <view class="content">
-    <view class="content-name ellipsiss">{{$.mvDetails.name}}</view>
+    <view class="content-name ellipsiss" wx:if="{{$.mvDetails.name}}">
+      <rich-text nodes="{{$.mvDetails.name}}"></rich-text>
+    </view>
+    <view class="content-name ellipsiss" wx:else>
+      <rich-text nodes="{{$.mvDetails.title}}"></rich-text>
+    </view>
     <view class="content-number flex a-center">
       <view class="playedNum flex a-center">
         <van-icon name="play-circle-o" class="details-ico" />
@@ -22,8 +27,20 @@
         <van-icon name="underway-o" details-ico />
         {{$.mvDetails.duration}}
       </view>
+      <view class="artist" wx:if="{{$.mvDetails.artistName}}">by:{{$.mvDetails.artistName}}</view>
+      <view class="artist flex a-center" wx:else>
+        by:
+        <rich-text nodes="{{$.mvDetails.creator[0].userName}}"></rich-text>
+      </view>
     </view>
-    <view class="content-desc ellipsiss">简介：{{$.mvDetails.copywriter}}</view>
-    <comments comments="{{hotComments}}"></comments>
+    <view class="publish-time" wx:if="{{$.mvDetails.publishTime}}">
+      发布于:{{$.mvDetails.publishTime}}
+    </view>
+    <view class="content-desc ellipsiss" wx:if="{{$.mvDetails.copywriter}}">
+      简介：{{$.mvDetails.copywriter}}
+    </view>
+    <view class="comment">
+      <comments comments="{{hotComments}}"></comments>
+    </view>
   </view>
 </view>
