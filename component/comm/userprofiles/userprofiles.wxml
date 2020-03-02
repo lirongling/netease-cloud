@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="item flex a-center j-between" wx:for="{{userprofiles}}" wx:key="index">
+  <view class="item flex a-center j-between" wx:for="{{userprofiles}}" wx:key="index" bind:tap="goDetails" data-id="{{item.userId}}">
     <view class="item-left flex a-center">
       <image class="item-img" src="{{item.avatarUrl}}" mode="widthFix" />
       <view class="item-details">

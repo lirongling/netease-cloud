@@ -1,0 +1,68 @@
+<wxs module="filter" src="../../assets/filter.wxs"></wxs>
+<view class="container">
+  <nav></nav>
+  <view class="top" style="background-image:url({{user.profile.backgroundUrl}})"></view>
+  <view class="avatar-url">
+    <image class="avatar-img" mode="widthFix" src="{{user.profile.avatarUrl}}" />
+  </view>
+  <view class="title flex j-between a-center">
+    <view class="title-left">
+      <view class="name">{{user.profile.nickname}}</view>
+      <view class="follow flex a-center">
+        <view class="follows">关注：{{user.profile.follows}}</view>
+        <view class="split"></view>
+        <view class="follows">粉丝:{{user.profile.followeds}}</view>
+      </view>
+      <view class="level">
+        <view class="level-text vip" wx:if="{{user.profile.vipType}}">
+          Lv.{{user.profile.vipType}}
+        </view>
+        <view class="level-text " wx:else>Lv.{{user.level}}</view>
+      </view>
+    </view>
+    <view class="title-rights flex  a-center">
+      <view class="attention flex  a-center">
+        <van-icon name="plus" />
+        <text class="right-text">订阅</text>
+      </view>
+      <view class="message attention flex  a-center">发私信</view>
+    </view>
+  </view>
+  <view class="content" id="contentsongs">
+    <van-tabs sticky="true">
+      <van-tab title="详情">
+        <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight-44}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
+          <view class="lisen flex a-center">
+            <image class="lisen-img" mode="widthFix" src="https://p1.music.126.net/5rzW97d9ONF63xUrIteaAg==/3406287023816151.jpg?param=140y140" />
+            <view class="lisen-right">
+              <view class="lisen-title">{{user.profile.nickname}}的听歌排行</view>
+              <view class="lisen-mount">累计听歌{{user.userPoint.balance}}首</view>
+            </view>
+          </view>
+          <view class="lisen flex a-center">
+            <image class="lisen-img" mode="widthFix" src="https://p1.music.126.net/wayX6FTT2SwV7zUgEK5IDw==/109951164604848879.jpg?param=140y140" />
+            <view class="lisen-right">
+              <view class="lisen-title">{{user.profile.nickname}}喜欢的音乐</view>
+              <view class="lisen-mount">喜欢{{user.userPoint.version}}首</view>
+            </view>
+          </view>
+          <view class="titless">基本信息</view>
+          <view class="details">
+            <view class="year">村龄：{{differ}}年（{{createTime}}）</view>
+            <view class="year">地区：{{city}}</view>
+            <view class="year" wx:if="{{user.profile.signature.length>0}}">
+              个性签名：{{user.profile.signature}}
+            </view>
+            <view class="year" wx:else>个性签名：暂无签名</view>
+          </view>
+        </scroll-view>
+      </van-tab>
+      <van-tab title="动态{{songs.length}}">
+        <scroll-view refresher-triggered="true" refresher-enabled="true" enable-back-to-top="true" scroll-y="true" style="height: {{contentHeight-44}}px;" scroll-with-animation="true" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
+          <view class="no-dynamic flex a-center j-center">暂时还没有动态哦</view>
+        </scroll-view>
+        <!-- <album hotAlbums="{{hotAlbums}}"></album> -->
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

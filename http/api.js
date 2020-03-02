@@ -175,6 +175,10 @@ export default {
         }
 
     },
+    // 获取用户详情
+    getUserDetails(id) {
+        return service.get(`/user/detail?uid=${id}`)
+    },
 
 
     // 修改用户信息

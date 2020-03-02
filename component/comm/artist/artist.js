@@ -11,7 +11,14 @@ Component({
 
     },
     methods: {
+        singerDetails(e) {
+            let id = e.currentTarget.dataset.id
+            let name = e.currentTarget.dataset.name
+            wx.navigateTo({
+                url: `/pages/singerDetails/singerDetails?id=${id}&name=${name}`,
 
+            });
+        }
     },
     created: function() {
 

@@ -65,8 +65,12 @@ create.Page(store, {
                         hotAlbums: this.data.hotAlbums,
                         offset: this.data.offset,
                         artist: res.artist,
-                        albumSize: res.artist.albumSize
+                        albumSize: res.artist.albumSize,
+                        name: res.artist.name
                     })
+                    wx.setNavigationBarTitle({
+                        title: this.data.name,
+                    });
                 } else if (res.hotAlbums.length === 0 && this.data.offset !== 5) {
                     wx.showToast({
                         title: '没有更多数据了',
@@ -205,9 +209,7 @@ create.Page(store, {
             name: options.name,
             id: options.id
         })
-        wx.setNavigationBarTitle({
-            title: options.name,
-        });
+
 
 
     },

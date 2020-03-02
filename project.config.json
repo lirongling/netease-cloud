@@ -77,6 +77,13 @@
 					"pathName": "pages/songDetails/songDetails",
 					"query": "id= 1424573763",
 					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/userDetails/userDetails",
+					"pathName": "pages/userDetails/userDetails",
+					"query": "id= 385338325",
+					"scene": null
 				}
 			]
 		}

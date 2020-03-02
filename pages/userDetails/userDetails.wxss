@@ -1,0 +1,110 @@
+@import "../singerDetails/singerDetails.wxss";
+.content {
+    border-radius: 30rpx 30rpx 0 0!important;
+}
+
+.avatar-url {
+    position: absolute;
+    left: 5%;
+    top: 220rpx;
+}
+
+.title {
+    margin-top: -190rpx;
+}
+
+.avatar-img {
+    width: 150rpx;
+    border-radius: 50%;
+}
+
+.follow {
+    font-size: 30rpx;
+    color: rgb(240, 240, 240);
+    margin: 15rpx auto;
+}
+
+.split {
+    width: 2rpx;
+    height: 30rpx;
+    background: rgb(204, 203, 203);
+    margin: 0 15rpx;
+}
+
+.level {
+    min-width: 100rpx;
+    /* margin-bottom: 30rpx; */
+}
+
+.level-text {
+    display: inline-block;
+    background: rgba(219, 223, 226, 0.5);
+    border-radius: 20rpx;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: white;
+}
+
+.vip {
+    color: rgb(240, 95, 12);
+}
+
+.attention {
+    background: rgb(248, 17, 9);
+    border-radius: 20rpx;
+    padding: 10rpx 20rpx;
+    color: white;
+    font-size: 28rpx;
+}
+
+.message {
+    margin-left: 15rpx;
+    background: rgba(226, 219, 219, .5);
+}
+
+.titless {
+    width: 90%;
+    margin: 20rpx auto;
+    font-size: 34rpx;
+    font-weight: 550;
+}
+
+.details {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 28rpx;
+    color: rgb(83, 83, 83);
+}
+
+.year {
+    margin-bottom: 10rpx;
+}
+
+.lisen {
+    /* padding-top: 20rpx; */
+    width: 90%;
+    margin: 0 auto;
+    font-size: 32rpx;
+    height: 130rpx;
+}
+
+.lisen-img {
+    width: 90rpx;
+    border-radius: 20rpx;
+}
+
+.lisen-right {
+    margin-left: 10rpx;
+}
+
+.lisen-mount {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: rgb(83, 83, 83);
+}
+
+.no-dynamic {
+    height: 200rpx;
+    font-size: 28rpx;
+    color: rgb(83, 83, 83);
+}

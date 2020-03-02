@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-icon": "vant-weapp/icon",
+        "van-button": "vant-weapp/button",
+        "van-tab": "vant-weapp/tab",
+        "van-tabs": "vant-weapp/tabs",
+        "nav": "../../component/comm/nav/nav"
+    },
+    "navigationStyle": "custom"
+}

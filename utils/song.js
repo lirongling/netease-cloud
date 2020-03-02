@@ -26,6 +26,7 @@ const getUrls = (item) => {
                 backSong.play();
                 onEnded()
             } else {
+
                 if (store.data.songsList.length === 1) {
                     wx.showToast({
                         title: '资源未找到',

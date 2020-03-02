@@ -14,6 +14,7 @@
         "pages/djDetails/djDetails",
         "pages/songDetails/songDetails",
         "pages/audioDetails/audioDetails",
+        "pages/userDetails/userDetails",
         "component/comm/djRadios"
     ],
     "requiredBackgroundModes": ["audio"],
